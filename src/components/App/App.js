@@ -2,6 +2,7 @@ import React from 'react';
 import NavBar from '../NavBar/NavBar';
 import TrailIndex from '../TrailIndex/TrailIndex';
 import TrailDetails from '../TrailDetails/TrailDetails';
+import FavoriteTrails from '../FavoriteTrails/FavoriteTrails';
 import { Route, Switch } from 'react-router-dom';
 import './App.scss';
 
@@ -17,9 +18,7 @@ const App = () => {
         />
         <Route exact path="/favorites"
           render={() =>
-            <>
-              <h1>Favorites Test</h1>
-            </>
+            <FavoriteTrails />
           }
         />
         <Route exact path="/trail/:id"
