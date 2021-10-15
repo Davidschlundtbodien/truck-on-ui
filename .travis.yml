@@ -1,6 +1,7 @@
 language: node_js
 
 node_js:
+  # Node 10.3+ includes npm@6 which has good "npm ci" command
   - "node"
 
 notifications:
@@ -18,10 +19,10 @@ cache:
     - ~/.cache
   # install dependencies and check that Cypress can run
   override:
-   - npm ci
-   - npm run cy:verify
+    - npm ci
+    - npm run cy:verify
 
- script:
+script:
   # start server in the background
   - npm start &
   # run all Cypress tests and record on the dashboard
