@@ -3,6 +3,7 @@ import NavBar from '../NavBar/NavBar';
 import TrailIndex from '../TrailIndex/TrailIndex';
 import TrailDetails from '../TrailDetails/TrailDetails';
 import FavoriteTrails from '../FavoriteTrails/FavoriteTrails';
+import PageNotFound from '../PageNotFound/PageNotFound';
 import { Route, Switch } from 'react-router-dom';
 import './App.scss';
 
@@ -25,6 +26,11 @@ const App = () => {
           render={({match}) => {
               return <TrailDetails trailID={match.params.id}/>
           }}
+        />
+        <Route path="*"
+          render={() =>
+            <PageNotFound />
+          }
         />
       </Switch>
     </main>
