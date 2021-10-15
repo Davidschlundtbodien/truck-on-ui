@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from '../NavBar/NavBar';
+import TrailIndex from '../TrailIndex/TrailIndex';
 import { Route, Switch } from 'react-router-dom';
 import './App.scss';
 
@@ -10,9 +11,7 @@ const App = () => {
       <Switch>
         <Route exact path="/"
           render={() =>
-            <>
-              <h1>Home Test</h1>
-            </>
+            <TrailIndex />
           }
         />
         <Route exact path="/favorites"
