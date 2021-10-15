@@ -7,19 +7,21 @@ import PageNotFound from '../PageNotFound/PageNotFound';
 import { Route, Switch } from 'react-router-dom';
 import './App.scss';
 
+const userLoggedIn = {id: 23, name: 'Eric'}
+
 const App = () => {
   return (
     <main className="app-main">
-      <NavBar />
+      <NavBar user={userLoggedIn}/>
       <Switch>
         <Route exact path="/"
           render={() =>
             <TrailIndex />
           }
         />
-        <Route exact path="/favorites"
-          render={() =>
-            <FavoriteTrails />
+        <Route exact path="/favorites/:userID"
+          render={({match}) =>
+            <FavoriteTrails userID={match.params.userID}/>
           }
         />
         <Route exact path="/trail/:id"
