@@ -25,8 +25,16 @@ const App = () => {
   }, [])
 
   const startApp = () => {
+    setIsLoading(true)
     setAllTrails(trails)
     setFilteredTrails(trails)
+    setIsLoading(false)
+    // isLoading state will be used to render a react-loader-spinner
+  }
+
+  // Filter function passed down as prop to Filter component, will setFilteredTrails
+  const filterTrails = (categories) => {
+    console.log(categories)
   }
 
   return (
@@ -35,7 +43,14 @@ const App = () => {
       <Switch>
         <Route exact path="/"
           render={() =>
-            { !filterActive ? <TrailIndex /> : <Filter /> }
+            { !filterActive ? 
+              <TrailIndex 
+                filteredTrails={filteredTrails} 
+              /> : 
+              <Filter
+                filterTrails={filterTrails} 
+              /> 
+            }
           }
         />
         <Route exact path="/favorites/:userID"
