@@ -33,7 +33,7 @@ const App = () => {
   }
 
   // Filter function passed down as prop to Filter component, will setFilteredTrails
-  const filterTrails = (categories) => {
+  const applyTrailFilters = (categories) => {
     console.log(categories)
   }
 
@@ -43,14 +43,13 @@ const App = () => {
       <Switch>
         <Route exact path="/"
           render={() =>
-            { !filterActive ? 
-              <TrailIndex 
-                filteredTrails={filteredTrails} 
-              /> : 
-              <Filter
-                filterTrails={filterTrails} 
-              /> 
-            }
+            <>
+            <button onClick={() => setFilterActive(!filterActive)}>Filter</button>
+              { !filterActive ?
+                <TrailIndex filteredTrails={filteredTrails}/> : 
+                <Filter applyTrailFilters={applyTrailFilters}/>
+              }
+            </>
           }
         />
         <Route exact path="/favorites/:userID"
