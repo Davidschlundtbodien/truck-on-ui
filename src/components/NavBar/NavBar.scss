@@ -1,9 +1,12 @@
 .nav-bar {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 20%;
   height: 5em;
-  background-color: lime;
+  margin-right: 2em;
+  margin-left: auto;
+  border: 1px dotted lime;
+  padding-top: 2em;
 }
 
 .link {
