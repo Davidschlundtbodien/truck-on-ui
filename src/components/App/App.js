@@ -15,7 +15,6 @@ const App = () => {
   const [allTrails, setAllTrails] = useState(null);
   const [filteredTrails, setFilteredTrails] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [filterActive, setFilterActive] = useState(false);
 
 
   // On component mount, App should perform a fetch call to pull all trails data and setAllTrails
@@ -34,7 +33,7 @@ const App = () => {
 
   // Filter function passed down as prop to Filter component, will setFilteredTrails
   const applyTrailFilters = (categories) => {
-    console.log(categories)
+    console.log("App apply Filter test", categories)
   }
 
   return (
@@ -44,11 +43,9 @@ const App = () => {
         <Route exact path="/"
           render={() =>
             <>
-            <button onClick={() => setFilterActive(!filterActive)}>Filter</button>
-              { !filterActive ?
-                <TrailIndex filteredTrails={filteredTrails}/> : 
-                <Filter applyTrailFilters={applyTrailFilters}/>
-              }
+              <input type="text" placeholder="Search Trails"></input>
+              <Filter applyTrailFilters={applyTrailFilters}/>
+              <TrailIndex filteredTrails={filteredTrails} />
             </>
           }
         />
