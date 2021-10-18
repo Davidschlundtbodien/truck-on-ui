@@ -41,6 +41,8 @@
   },
   "devDependencies": {
     "cypress": "^8.6.0",
-    "sass": "^1.43.2"
+    "git-scripts": "^0.4.3",
+    "sass": "^1.43.2",
+    "surge": "^0.23.0"
   }
 }
