@@ -4,10 +4,6 @@ node_js:
   # Node 10.3+ includes npm@6 which has good "npm ci" command
   - "node"
 
-after_success:
-  # deploy project to surge using the build directory
-  - surge --project ./ericli1996/truck-on-ui/build --domain truck-on.surge.sh/
-
 notifications:
   email: false
 
@@ -37,3 +33,9 @@ script:
   # to kill all background jobs (like "npm start &")
   # this avoids flake in Travis jobs
   - kill $(jobs -p) || true
+
+deploy:
+  provider:surge
+  project:./dist/
+  domain:truck-on.surge.sh
+  skip_cleanup: true
