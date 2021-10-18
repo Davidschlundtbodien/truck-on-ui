@@ -39,3 +39,5 @@ deploy:
   project:./dist/
   domain:truck-on.surge.sh
   skip_cleanup: true
+  on:
+    branch: main
