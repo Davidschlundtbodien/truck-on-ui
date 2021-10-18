@@ -35,9 +35,7 @@ script:
   - kill $(jobs -p) || true
 
 deploy:
-  provider:surge
-  project:./dist/
-  domain:truck-on.surge.sh
+  provider: surge
+  project: ./dist/
+  domain: truck-on.surge.sh
   skip_cleanup: true
-  on:
-    branch: main
