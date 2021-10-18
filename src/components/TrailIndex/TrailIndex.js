@@ -5,7 +5,7 @@ import './TrailIndex.scss';
 const TrailIndex = () => {
   return (
     <section className="trail-index-container">
-      <h1>Home Test</h1>
+      <h1>Trail Index/Home Test</h1>
     </section>
   );
 }
