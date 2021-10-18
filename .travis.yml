@@ -5,7 +5,8 @@ node_js:
   - "node"
 
 after_success:
-  - surge --project ./build --domain truck-on.surge.sh/
+  # deploy project to surge using the build directory
+  - surge --project ./ericli1996/truck-on-ui/build --domain truck-on.surge.sh/
 
 notifications:
   email: false
@@ -30,6 +31,7 @@ script:
   - npm start &
   # run all Cypress tests and record on the dashboard
   - npm run cy:run
+  # start React build for continuous deployment
   - npm run build
   # after all tests finish running we need
   # to kill all background jobs (like "npm start &")
