@@ -43,7 +43,7 @@
     "cypress": "^8.6.0",
     "git-scripts": "^0.4.3",
     "sass": "^1.43.2",
-    "surge": "latest"
+    "surge": "^0.23.0"
   },
   "git": {
     "scripts": {

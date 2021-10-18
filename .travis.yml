@@ -4,6 +4,9 @@ node_js:
   # Node 10.3+ includes npm@6 which has good "npm ci" command
   - "node"
 
+after_success:
+  - surge --project ./build --domain truck-on.surge.sh/
+
 notifications:
   email: false
 
@@ -27,6 +30,7 @@ script:
   - npm start &
   # run all Cypress tests and record on the dashboard
   - npm run cy:run
+  - npm run build
   # after all tests finish running we need
   # to kill all background jobs (like "npm start &")
   # this avoids flake in Travis jobs
