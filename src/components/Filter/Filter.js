@@ -125,7 +125,6 @@ const Filter = ({ applyTrailFilters, onApply, label }) => {
   }
     
   const handleApply = () => {
-    // event.preventDefault()
     applyTrailFilters(filterObj)
     setFilterActive(false);
   }
@@ -134,6 +133,23 @@ const Filter = ({ applyTrailFilters, onApply, label }) => {
     setEasyDifficulty(false);
     setModerateDifficulty(false);
     setHardDifficulty(false);
+    setPointToPoint(false);
+    setOutAndBack(false);
+    setLoop(false);
+    setLightTraffic(false);
+    setModerateTraffic(false);
+    setHeavyTraffic(false);
+    setHikingActivity(false);
+    setSnowshoeingActivity(false);
+    setFishingActivity(false);
+    setCampingActivity(false);
+    setRockyActivity(false);
+    setMountainBikingActivity(false);
+    setViewsActivity(false);
+    setWildlifeActivity(false);
+    setWaterfallActivity(false);
+    setRiverActivity(false);
+    setSkiingActivity(false);
     setFilterActive(false);
   }
 
