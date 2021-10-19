@@ -1,13 +1,21 @@
 .nav-bar {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 20em;
   height: 5em;
-  background-color: lime;
+  margin-right: 2em;
+  margin-left: auto;
+  padding-top: 2em;
 }
 
 .link {
   text-decoration: none;
   color: white;
 }
+
+@media (max-width: 768px) {
+  .nav-bar {
+    margin-right: auto;
+  }
+ }
 
