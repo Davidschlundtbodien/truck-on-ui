@@ -24,7 +24,7 @@ cache:
 
 script:
   # start server in the background
-  - npm start &
+  - npm start
   # run all Cypress tests and record on the dashboard
   - npm run cy:run
   # start React build for continuous deployment
@@ -39,5 +39,3 @@ deploy:
   domain: truck-on.surge.sh
   skip_cleanup: true
 
-on:
-  branch: main
