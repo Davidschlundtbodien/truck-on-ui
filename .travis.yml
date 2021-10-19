@@ -26,9 +26,8 @@ script:
   # start server in the background
   - npm start &
   # run all Cypress tests and record on the dashboard
-  - npm run cy:run &
+  - npm run cy:run
   # start React build for continuous deployment
-  - CI='' npm run build
   # after all tests finish running we need
   # to kill all background jobs (like "npm start &")
   # this avoids flake in Travis jobs
