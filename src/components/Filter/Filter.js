@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import FilterModal from '../../FilterModal/FilterModal';
 import './Filter.scss';
 
-const Filter = ({ applyTrailFilters, onApply, label }) => {
+const Filter = ({ cleanFilters, onApply, label }) => {
   const [filterActive, setFilterActive] = useState(false);
   const dropdownRef = useRef(undefined);
   const buttonRef = useRef(undefined);
@@ -95,37 +95,37 @@ const Filter = ({ applyTrailFilters, onApply, label }) => {
 
   const filterObj = {
     difficulty: {
-      "Easy": {easyDifficulty}.easyDifficulty,
-      "Moderate": {moderateDifficulty}.moderateDifficulty,
-      "Hard": {hardDifficulty}.hardDifficulty
+      "Easy": easyDifficulty,
+      "Moderate": moderateDifficulty,
+      "Hard": hardDifficulty
     },
     type: {
-      "Point to Point": {pointToPoint}.pointToPoint,
-      "Out and Back": {outAndBack}.outAndBack,
-      "Loop": {loop}.loop
+      "Point to Point": pointToPoint,
+      "Out and Back": outAndBack,
+      "Loop": loop
     },
     traffic: {
-      "Light": {lightTraffic}.lightTraffic,
-      "Moderate": {moderateTraffic}.moderateTraffic,
-      "Heavy": {heavyTraffic}.heavyTraffic
+      "Light": lightTraffic,
+      "Moderate": moderateTraffic,
+      "Heavy": heavyTraffic
     },
     activities: {
-      "Hiking": {hikingActivity}.hikingActivity,
-      "Snowshoeing": {snowShoeingActivity}.snowShoeingActivity,
-      "Fishing": {fishingActivity}.fishingActivity,
-      "Camping": {campingActivity}.campingActivity,
-      "Rocky": {rockyActivity}.rockyActivity,
-      "Mountain biking": {mountainBikingActivity}.mountainBikingActivity,
-      "Views": {viewsActivity}.viewsActivity,
-      "Wildlife": {wildlifeActivity}.wildlifeActivity,
-      "Waterfall": {waterfallActivity}.waterfallActivity,
-      "River": {riverActivity}.riverActivity,
-      "Skiing": {skiingActivity}.skiingActivity
+      "Hiking": hikingActivity,
+      "Snowshoeing": snowShoeingActivity,
+      "Fishing": fishingActivity,
+      "Camping": campingActivity,
+      "Rocky": rockyActivity,
+      "Mountain biking": mountainBikingActivity,
+      "Views": viewsActivity,
+      "Wildlife": wildlifeActivity,
+      "Waterfall": waterfallActivity,
+      "River": riverActivity,
+      "Skiing": skiingActivity
     }
   }
     
   const handleApply = () => {
-    applyTrailFilters(filterObj)
+    cleanFilters(filterObj)
     setFilterActive(false);
   }
 

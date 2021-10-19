@@ -16,7 +16,6 @@ const App = () => {
   const [filteredTrails, setFilteredTrails] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-
   // On component mount, App should perform a fetch call to pull all trails data and setAllTrails
   // For now, using sampleTrailData file
   useEffect(() => {
@@ -32,8 +31,12 @@ const App = () => {
   }
 
   // Filter function passed down as prop to Filter component, will setFilteredTrails
-  const applyTrailFilters = (categories) => {
-    console.log("App apply Filter test", categories)
+  const cleanFilters = (filterObj) => {
+    const categories = (Object.keys(filterObj))
+    console.log(categories.reduce((acc, category) => {
+      acc[category] = Object.entries(filterObj[category]).filter(obj => obj[1] === true).map(obj => obj[0])
+      return acc
+    }, {difficulty: [], type: [], traffic: [], activities: []}))
   }
 
   return (
@@ -44,7 +47,7 @@ const App = () => {
           render={() =>
             <>
               <input type="text" placeholder="Search Trails"></input>
-              <Filter applyTrailFilters={applyTrailFilters}/>
+              <Filter applyTrailFilters={cleanFilters}/>
               <TrailIndex filteredTrails={filteredTrails} />
             </>
           }
