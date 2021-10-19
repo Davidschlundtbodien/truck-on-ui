@@ -36,6 +36,9 @@ script:
 
 deploy:
   provider: surge
-  project: ./dist/
+  project: ./build/
   domain: truck-on.surge.sh
   skip_cleanup: true
+
+# on:
+  # branch: main
