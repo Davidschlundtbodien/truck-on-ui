@@ -32,6 +32,12 @@
  .filter-modal-content {
   display: flex;
   flex-direction: column;
+  button {
+    margin: 2rem 5px;
+    padding: 0.4rem 1rem;
+    border-radius: 15px;
+    border: 1px solid gray;
+  }
  }
  
  .filter-modal-actions {

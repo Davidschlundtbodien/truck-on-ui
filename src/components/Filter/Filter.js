@@ -25,9 +25,12 @@ const Filter = ({ applyTrailFilters, onApply, label }) => {
   const [viewsActivity, setViewsActivity] = useState(false);
   const [wildlifeActivity, setWildlifeActivity] = useState(false);
   const [waterfallActivity, setWaterfallActivity] = useState(false);
-  const [RiverActivity, setRiverActivity] = useState(false);
+  const [riverActivity, setRiverActivity] = useState(false);
   const [skiingActivity, setSkiingActivity] = useState(false);
 
+
+  // This useEffect is used to close the dropdown/modal if a user clicks anywhere outside
+  // of the dropdown/modal
   useEffect(() => {
     const handleClickOutside = (event) => {
     const isDropdownClick = dropdownRef.current && dropdownRef.current.contains(event.target);
@@ -50,45 +53,80 @@ const Filter = ({ applyTrailFilters, onApply, label }) => {
     };
   }, [dropdownRef, buttonRef, modalRef]);
 
+  // const options needs refactoring to be more DRY. Possible solution:
+  // Take all categories and store them in an array.
+  // Use a forEach to render a JSX button element for each element in the array
+
   const options = 
-    <>
+    <section className="filter-options-container">
       <div className="difficulty-filters">
         <p className="difficulty-heading">Difficulty</p>
-        <button onClick={() => setEasyDifficulty(!easyDifficulty)}>Easy</button>
-        <button onClick={() => setModerateDifficulty(!moderateDifficulty)}>Moderate</button>
-        <button onClick={() => setHardDifficulty(!hardDifficulty)}>Hard</button>
+        <button className={easyDifficulty ? "active-filter" : "default"} onClick={() => setEasyDifficulty(!easyDifficulty)}>Easy</button>
+        <button className={moderateDifficulty ? "active-filter" : "default"} onClick={() => setModerateDifficulty(!moderateDifficulty)}>Moderate</button>
+        <button className={hardDifficulty ? "active-filter" : "default"} onClick={() => setHardDifficulty(!hardDifficulty)}>Hard</button>
       </div>
       <div className="type-filters">
         <p className="type-heading">Route Type</p>
-        <button onClick={() => setPointToPoint(!pointToPoint)}>Point to Point</button>
-        <button onClick={() => setOutAndBack(!outAndBack)}>Out and Back</button>
-        <button onClick={() => setLoop(!loop)}>Loop</button>
+        <button className={pointToPoint ? "active-filter" : "default"} onClick={() => setPointToPoint(!pointToPoint)}>Point to Point</button>
+        <button className={outAndBack ? "active-filter" : "default"} onClick={() => setOutAndBack(!outAndBack)}>Out and Back</button>
+        <button className={loop ? "active-filter" : "default"} onClick={() => setLoop(!loop)}>Loop</button>
       </div>
       <div className="traffic-filters">
         <p className="traffic-heading">Traffic</p>
-        <button onClick={() => setLightTraffic(!lightTraffic)}>Easy</button>
-        <button onClick={() => setModerateTraffic(!moderateTraffic)}>Moderate</button>
-        <button onClick={() => setHeavyTraffic(!heavyTraffic)}>Hard</button>
+        <button className={lightTraffic ? "active-filter" : "default"} onClick={() => setLightTraffic(!lightTraffic)}>Easy</button>
+        <button className={moderateTraffic ? "active-filter" : "default"} onClick={() => setModerateTraffic(!moderateTraffic)}>Moderate</button>
+        <button className={heavyTraffic ? "active-filter" : "default"} onClick={() => setHeavyTraffic(!heavyTraffic)}>Hard</button>
       </div>
       <div className="activity-filters">
         <p className="activity-heading">Activities</p>
-        <button onClick={() => setHikingActivity(!hikingActivity)}>Hiking</button>
-        <button onClick={() => setSnowshoeingActivity(!snowShoeingActivity)}>Snowshoeing</button>
-        <button onClick={() => setFishingActivity(!fishingActivity)}>Fishing</button>
-        <button onClick={() => setCampingActivity(!campingActivity)}>Camping</button>
-        <button onClick={() => setRockyActivity(!rockyActivity)}>Rocky</button>
-        <button onClick={() => setMountainBikingActivity(!mountainBikingActivity)}>Mountain biking</button>
-        <button onClick={() => setViewsActivity(!viewsActivity)}>Views</button>
-        <button onClick={() => setWildlifeActivity(!wildlifeActivity)}>Wildlife</button>
-        <button onClick={() => setWaterfallActivity(!waterfallActivity)}>Waterfall</button>
-        <button onClick={() => setRiverActivity(!RiverActivity)}>River</button>
-        <button onClick={() => setSkiingActivity(!skiingActivity)}>Skiing</button>
+        <button className={hikingActivity ? "active-filter" : "default"} onClick={() => setHikingActivity(!hikingActivity)}>Hiking</button>
+        <button className={snowShoeingActivity ? "active-filter" : "default"} onClick={() => setSnowshoeingActivity(!snowShoeingActivity)}>Snowshoeing</button>
+        <button className={fishingActivity ? "active-filter" : "default"} onClick={() => setFishingActivity(!fishingActivity)}>Fishing</button>
+        <button className={campingActivity ? "active-filter" : "default"} onClick={() => setCampingActivity(!campingActivity)}>Camping</button>
+        <button className={rockyActivity ? "active-filter" : "default"} onClick={() => setRockyActivity(!rockyActivity)}>Rocky</button>
+        <button className={mountainBikingActivity ? "active-filter" : "default"} onClick={() => setMountainBikingActivity(!mountainBikingActivity)}>Mountain biking</button>
+        <button className={viewsActivity ? "active-filter" : "default"} onClick={() => setViewsActivity(!viewsActivity)}>Views</button>
+        <button className={wildlifeActivity ? "active-filter" : "default"} onClick={() => setWildlifeActivity(!wildlifeActivity)}>Wildlife</button>
+        <button className={waterfallActivity ? "active-filter" : "default"} onClick={() => setWaterfallActivity(!waterfallActivity)}>Waterfall</button>
+        <button className={riverActivity ? "active-filter" : "default"} onClick={() => setRiverActivity(!riverActivity)}>River</button>
+        <button className={skiingActivity ? "active-filter" : "default"} onClick={() => setSkiingActivity(!skiingActivity)}>Skiing</button>
       </div>
-    </>
+    </section>
 
+  const filterObj = {
+    difficulty: {
+      "Easy": {easyDifficulty}.easyDifficulty,
+      "Moderate": {moderateDifficulty}.moderateDifficulty,
+      "Hard": {hardDifficulty}.hardDifficulty
+    },
+    type: {
+      "Point to Point": {pointToPoint}.pointToPoint,
+      "Out and Back": {outAndBack}.outAndBack,
+      "Loop": {loop}.loop
+    },
+    traffic: {
+      "Light": {lightTraffic}.lightTraffic,
+      "Moderate": {moderateTraffic}.moderateTraffic,
+      "Heavy": {heavyTraffic}.heavyTraffic
+    },
+    activities: {
+      "Hiking": {hikingActivity}.hikingActivity,
+      "Snowshoeing": {snowShoeingActivity}.snowShoeingActivity,
+      "Fishing": {fishingActivity}.fishingActivity,
+      "Camping": {campingActivity}.campingActivity,
+      "Rocky": {rockyActivity}.rockyActivity,
+      "Mountain biking": {mountainBikingActivity}.mountainBikingActivity,
+      "Views": {viewsActivity}.viewsActivity,
+      "Wildlife": {wildlifeActivity}.wildlifeActivity,
+      "Waterfall": {waterfallActivity}.waterfallActivity,
+      "River": {riverActivity}.riverActivity,
+      "Skiing": {skiingActivity}.skiingActivity
+    }
+  }
     
   const handleApply = () => {
-    applyTrailFilters("HERE HANDLEAPPLY")
+    // event.preventDefault()
+    applyTrailFilters(filterObj)
     setFilterActive(false);
   }
 
