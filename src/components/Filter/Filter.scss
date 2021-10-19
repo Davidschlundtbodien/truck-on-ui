@@ -46,7 +46,12 @@
  }
 
  .active-filter {
-   background-color: blue;
+   background-color: #2b7de9;
+   color: white;
+ }
+
+ .active-filter, .default {
+   font-weight: 600;
  }
 
  .filter-dropdown-actions {
