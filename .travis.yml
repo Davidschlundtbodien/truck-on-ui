@@ -26,7 +26,7 @@ script:
   # start server in the background
   - npm start &
   # run all Cypress tests and record on the dashboard
-  - npm run cy:run
+  - npm run cy:run &
   # start React build for continuous deployment
   - CI='' npm run build
   # after all tests finish running we need
@@ -40,5 +40,5 @@ deploy:
   domain: truck-on.surge.sh
   skip_cleanup: true
 
-# on:
-  # branch: main
+ on:
+   branch: main
