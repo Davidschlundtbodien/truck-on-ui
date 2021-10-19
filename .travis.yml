@@ -40,5 +40,5 @@ deploy:
   domain: truck-on.surge.sh
   skip_cleanup: true
 
- on:
-   branch: main
+on:
+  branch: main
