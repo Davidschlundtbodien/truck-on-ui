@@ -33,9 +33,14 @@ script:
   # this avoids flake in Travis jobs
   - kill $(jobs -p) || true
 
+before_deploy:
+  - npm run build
+
 deploy:
   provider: surge
   project: ./build/
   domain: truck-on.surge.sh
   skip_cleanup: true
+  on:
+    all_branches: true
 
