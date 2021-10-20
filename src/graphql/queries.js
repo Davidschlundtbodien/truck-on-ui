@@ -10,3 +10,14 @@ export const TRAIL_INDEX = gql`
     }
   }
 `;
+
+export const SINGLE_TRAIL = gql`
+  query GetSingleTrail($id: Integer!) {
+    trail(id: $id) {
+      name
+      difficulty
+      traffic
+      activities
+    }
+  }
+`;
