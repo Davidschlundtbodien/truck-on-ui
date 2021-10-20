@@ -23,7 +23,7 @@ cache:
     - npm run cy:verify
 
 before_script:
-  - npm start
+  - CI='' npm start
     
 script:
   # start server in the background
