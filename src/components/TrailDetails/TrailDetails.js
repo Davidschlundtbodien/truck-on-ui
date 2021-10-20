@@ -8,7 +8,7 @@ const TrailDetails = () => {
     variables: {  },
   });
 
-  if (loading) return null;
+  // if (loading) return null;
   if (error) return `Error! ${error}`;
 
   return (
