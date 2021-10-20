@@ -1,12 +1,12 @@
 import React from 'react';
-import { DialogContent, DialogOverlay } from '@reach/dialog';
+// import { DialogContent, DialogOverlay } from '@reach/dialog';
 import './FilterModal.scss';
 
 const FilterModal = React.forwardRef(({children, options, resetFilters, onApply, onDismiss}, ref) => {
     return (
       <>
-        <DialogOverlay className="filter-modal" >
-          <DialogContent
+        <div className="filter-modal" >
+          <div
             ref={ref}
             className="filter-modal-wrapper"
             aria-label="modal window"
@@ -19,8 +19,8 @@ const FilterModal = React.forwardRef(({children, options, resetFilters, onApply,
             <div className="filter-modal-actions">
               <button onClick={onApply}>Apply Filters</button>
             </div>
-          </DialogContent>
-        </DialogOverlay>
+          </div>
+        </div>
       </>
     );
   });
