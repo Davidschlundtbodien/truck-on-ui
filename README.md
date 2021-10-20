@@ -1,5 +1,5 @@
 # Truck On UI
-### [Coming Soon on Surge.sh](https://surge.sh/)
+### [Depolyed on Surge || Work in Progress](https://truck-on.surge.sh/)
 
 ## Github Repositories
 - [Front End](https://github.com/ericli1996/truck-on-ui)
