@@ -39,7 +39,6 @@
     ]
   },
   "devDependencies": {
-    "@reach/dialog": "^0.16.2",
     "cypress": "^8.6.0",
     "sass": "^1.43.2",
     "surge": "^0.23.0"
