@@ -21,13 +21,16 @@ cache:
   override:
     - npm ci
     - npm run cy:verify
+
+before_script:
+  - npm start
     
 script: 'true'
   # start server in the background
   # - npm start &
   # run all Cypress tests and record on the dashboard
-  # - npm run cy:run
+  - npm run cy:run
   # after all tests finish running we need
   # to kill all background jobs (like "npm start &")
   # this avoids flake in Travis jobs
-  # - kill $(jobs -p) || true
+  - kill $(jobs -p) || true
