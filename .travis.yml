@@ -2,7 +2,7 @@ language: node_js
 
 node_js:
   # Node 10.3+ includes npm@6 which has good "npm ci" command
-  - "node"
+  - "15"
 
 notifications:
   email: false
@@ -24,7 +24,7 @@ cache:
 
 script:
   # start server in the background
-  - npm start &&
+  - npm start &
   # run all Cypress tests and record on the dashboard
   - npm run cy:run
   # start React build for continuous deployment
