@@ -73,9 +73,9 @@ const Filter = ({ cleanFilters, onApply, label }) => {
       </div>
       <div className="traffic-filters">
         <p className="traffic-heading">Traffic</p>
-        <button className={lightTraffic ? "active-filter" : "default"} onClick={() => setLightTraffic(!lightTraffic)}>Easy</button>
+        <button className={lightTraffic ? "active-filter" : "default"} onClick={() => setLightTraffic(!lightTraffic)}>Light</button>
         <button className={moderateTraffic ? "active-filter" : "default"} onClick={() => setModerateTraffic(!moderateTraffic)}>Moderate</button>
-        <button className={heavyTraffic ? "active-filter" : "default"} onClick={() => setHeavyTraffic(!heavyTraffic)}>Hard</button>
+        <button className={heavyTraffic ? "active-filter" : "default"} onClick={() => setHeavyTraffic(!heavyTraffic)}>Heavy</button>
       </div>
       <div className="activity-filters">
         <p className="activity-heading">Activities</p>
