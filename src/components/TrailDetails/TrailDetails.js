@@ -15,9 +15,22 @@ const TrailDetails = ({trails, trailID}) => {
 
   return (
     <article className="trail-details-container">
-      <p>{trail.name}</p>
-      <p>{trail.description}</p>
-      <p>{trail.nearestCity}</p>
+      <p className="trail-name">{trail.name}</p>
+      <section className="description-container">
+        <p className="details-header">Summary</p>
+        <p>{trail.description}</p>
+      </section>
+      <section className="stats-container">
+        <p className="details-header">Stats of {trail.name}</p>
+        <div className="stats-container">
+          <p>Nearest City - {trail.nearestCity}</p>
+          <p>Elevation Gain - {trail.elevationGain} ft</p>
+          <p>Total Distance - {trail.distance} mi</p>
+          <p>Traffic - {trail.traffic}</p>
+          <p>Type - {trail.type}</p>
+          <p>Difficulty - {trail.difficulty}</p>
+        </div>
+      </section>
     </article>
   );
 }
