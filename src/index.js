@@ -3,12 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom';
+import {ApolloClient, InMemoryCache, ApolloProvider} from "@apollo/client";
+
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  uri: ""
+})
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <ApolloProvider client={client}>
+        <App />
+      </ApolloProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
