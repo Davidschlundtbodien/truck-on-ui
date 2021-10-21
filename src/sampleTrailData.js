@@ -10,7 +10,8 @@ const trails = [
     difficulty: "Moderate",
     type: "Point to Point",
     traffic: "Moderate",
-    nearestCity: "Leadville"
+    nearestCity: "Leadville",
+    activities: ["Hiking", "Snowshoeing", "Views", "Rocky"]
   },
   {
     id: 2,
@@ -23,7 +24,8 @@ const trails = [
     difficulty: "Hard",
     type: "Point to Point",
     traffic: "Moderate",
-    nearestCity: "Telluride"
+    nearestCity: "Telluride",
+    activities: ["Hiking", "Mountain biking", "Waterfall", "River", "Rocky"]
   },
   {
     id: 3,
@@ -36,7 +38,8 @@ const trails = [
     difficulty: "Hard",
     type: "Out and Back",
     traffic: "Moderate",
-    nearestCity: "Crested Butte"
+    nearestCity: "Crested Butte",
+    activities: ["Hiking", "Views", "Waterfall", "Fishing"]
   },
   {
     id: 4,
@@ -49,7 +52,8 @@ const trails = [
     difficulty: "Moderate",
     type: "Out and Back",
     traffic: "Light",
-    nearestCity: "Webster"
+    nearestCity: "Webster",
+    activities: ["Camping", "Skiing", "Hiking", "Views", "Rocky"]
   },
   {
     id: 5,
@@ -62,7 +66,8 @@ const trails = [
     difficulty: "Easy",
     type: "Point to Point",
     traffic: "Moderate",
-    nearestCity: "Fairplay"
+    nearestCity: "Fairplay",
+    activities: ["Views", "Wildlife", "Skiing", "Fishing"]
   },
   {
     id: 6,
@@ -75,7 +80,8 @@ const trails = [
     difficulty: "Easy",
     type: "Point to Point",
     traffic: "Heavy",
-    nearestCity: "Breckenridge"
+    nearestCity: "Breckenridge",
+    activities: ["Views", "Wildlife", "Skiing", "Snowshoeing", "Rocky", "Fishing"]
   }
 ]
 
