@@ -13,7 +13,7 @@ const userLoggedIn = {id: 23, name: 'Eric'}
 
 const App = () => {
   const [allTrails, setAllTrails] = useState(null);
-  const [filteredTrails, setFilteredTrails] = useState(null);
+  const [filteredTrails, setFilteredTrails] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   // On component mount, App should perform a fetch call to pull all trails data and setAllTrails
@@ -84,12 +84,13 @@ const App = () => {
         />
         <Route exact path="/favorites/:userID"
           render={({match}) =>
-            <FavoriteTrails userID={match.params.userID}/>
+            <FavoriteTrails userID={match.params.userID}
+            trails={filteredTrails}/>
           }
         />
         <Route exact path="/trail/:id"
           render={({match}) => {
-              return <TrailDetails trailID={match.params.id}/>
+              return <TrailDetails trailID={match.params.id} trails={filteredTrails}/>
           }}
         />
         <Route path="*"
