@@ -22,7 +22,7 @@ const TrailDetails = ({trails, trailID}) => {
       </section>
       <section className="stats-container">
         <p className="details-header">Stats of {trail.name}</p>
-        <div className="stats-container">
+        <div className="stats-list">
           <p>Nearest City - {trail.nearestCity}</p>
           <p>Elevation Gain - {trail.elevationGain} ft</p>
           <p>Total Distance - {trail.distance} mi</p>
