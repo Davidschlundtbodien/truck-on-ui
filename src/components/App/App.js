@@ -27,16 +27,46 @@ const App = () => {
     setAllTrails(trails)
     setFilteredTrails(trails)
     setIsLoading(false)
-    // isLoading state will be used to render a react-loader-spinner
   }
 
-  // Filter function passed down as prop to Filter component, will setFilteredTrails
   const cleanFilters = (filterObj) => {
-    const categories = (Object.keys(filterObj))
-    console.log(categories.reduce((acc, category) => {
+    const categories = Object.keys(filterObj)
+    const cleanedFilters = categories.reduce((acc, category) => {
       acc[category] = Object.entries(filterObj[category]).filter(obj => obj[1] === true).map(obj => obj[0])
       return acc
-    }, {difficulty: [], type: [], traffic: [], activities: []}))
+    }, {difficulty: [], type: [], traffic: [], activities: []})
+    applyTrailFilters(cleanedFilters)
+  }
+
+  const applyTrailFilters = (filterObj) => {
+    setFilteredTrails(allTrails.filter(trail => {
+      if (filterObj.difficulty.length) {
+        return filterObj.difficulty.includes(trail.difficulty)
+      } else {
+        return trail;
+      }
+    })
+    .filter(trail => {
+      if (filterObj.traffic.length) {
+        return filterObj.traffic.includes(trail.traffic)
+      } else {
+        return trail;
+      }
+    })
+    .filter(trail => {
+      if (filterObj.type.length) {
+        return filterObj.type.includes(trail.type)
+      } else {
+        return trail
+      }
+    })
+    .filter(trail => {
+      if (filterObj.activities.length) {
+        return filterObj.activities.every(activity => trail.activities.includes(activity))
+      } else {
+        return trail
+      }
+    }))
   }
 
   return (
@@ -47,7 +77,7 @@ const App = () => {
           render={() =>
             <>
               <input type="text" placeholder="Search Trails"></input>
-              <Filter applyTrailFilters={cleanFilters}/>
+              <Filter cleanFilters={cleanFilters}/>
               <TrailIndex filteredTrails={filteredTrails} />
             </>
           }
