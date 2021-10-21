@@ -89,7 +89,7 @@ const App = () => {
         />
         <Route exact path="/trail/:id"
           render={({match}) => {
-              return <TrailDetails trailID={match.params.id}/>
+              return <TrailDetails trailID={match.params.id} trails={filteredTrails}/>
           }}
         />
         <Route path="*"
