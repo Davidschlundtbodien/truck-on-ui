@@ -84,7 +84,8 @@ const App = () => {
         />
         <Route exact path="/favorites/:userID"
           render={({match}) =>
-            <FavoriteTrails userID={match.params.userID}/>
+            <FavoriteTrails userID={match.params.userID}
+            trails={filteredTrails}/>
           }
         />
         <Route exact path="/trail/:id"
