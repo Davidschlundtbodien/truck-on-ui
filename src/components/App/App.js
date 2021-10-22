@@ -7,7 +7,7 @@ import FavoriteTrails from '../FavoriteTrails/FavoriteTrails';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import { Route, Switch } from 'react-router-dom';
 import trails from '../../sampleTrailData';
-import { filterByCatagories} from '../Filter/helperMethods';
+import { filterByCatagories, cleanFilters } from '../Filter/helperMethods';
 import './App.scss';
 
 const userLoggedIn = {id: 23, name: 'Eric'}
@@ -15,15 +15,6 @@ const userLoggedIn = {id: 23, name: 'Eric'}
 const App = () => {
   const [allTrails, setAllTrails] = useState(trails);
   const [filteredTrails, setFilteredTrails] = useState(trails);
-
-  const cleanFilters = (filterObj) => {
-    const categories = Object.keys(filterObj)
-    const cleanedFilters = categories.reduce((acc, category) => {
-      acc[category] = Object.entries(filterObj[category]).filter(obj => obj[1] === true).map(obj => obj[0])
-      return acc
-    }, {difficulty: [], type: [], traffic: [], activities: []})
-    return cleanedFilters
-  }
 
   const handleTrailFilters = (filterObj) => {
     const cleanedFilters = cleanFilters(filterObj)
