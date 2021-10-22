@@ -22,11 +22,12 @@ const App = () => {
       acc[category] = Object.entries(filterObj[category]).filter(obj => obj[1] === true).map(obj => obj[0])
       return acc
     }, {difficulty: [], type: [], traffic: [], activities: []})
-    applyTrailFilters(cleanedFilters)
+    return cleanedFilters
   }
 
-  const applyTrailFilters = (filterObj) => {
-    setFilteredTrails(filterByCatagories(filterObj, allTrails))
+  const handleTrailFilters = (filterObj) => {
+    const cleanedFilters = cleanFilters(filterObj)
+    setFilteredTrails(filterByCatagories(cleanedFilters, allTrails))
   }
 
   return (
@@ -37,7 +38,7 @@ const App = () => {
           render={() =>
             <>
               <input type="text" placeholder="Search Trails"></input>
-              <Filter cleanFilters={cleanFilters}/>
+              <Filter handleTrailFilters={handleTrailFilters}/>
               <TrailIndex filteredTrails={filteredTrails} />
             </>
           }
