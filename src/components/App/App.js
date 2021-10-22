@@ -13,22 +13,8 @@ import './App.scss';
 const userLoggedIn = {id: 23, name: 'Eric'}
 
 const App = () => {
-  const [allTrails, setAllTrails] = useState(null);
-  const [filteredTrails, setFilteredTrails] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  // On component mount, App should perform a fetch call to pull all trails data and setAllTrails
-  // For now, using sampleTrailData file
-  useEffect(() => {
-    startApp();
-  }, [])
-
-  const startApp = () => {
-    setIsLoading(true)
-    setAllTrails(trails)
-    setFilteredTrails(trails)
-    setIsLoading(false)
-  }
+  const [allTrails, setAllTrails] = useState(trails);
+  const [filteredTrails, setFilteredTrails] = useState(trails);
 
   const cleanFilters = (filterObj) => {
     const categories = Object.keys(filterObj)
