@@ -40,32 +40,16 @@ const App = () => {
 
   const applyTrailFilters = (filterObj) => {
     setFilteredTrails(allTrails.filter(trail => {
-      if (filterObj.difficulty.length) {
-        return filterObj.difficulty.includes(trail.difficulty)
-      } else {
-        return trail;
-      }
+      return filterObj.difficulty.length ? filterObj.difficulty.includes(trail.difficulty) : trail;
     })
     .filter(trail => {
-      if (filterObj.traffic.length) {
-        return filterObj.traffic.includes(trail.traffic)
-      } else {
-        return trail;
-      }
+      return filterObj.traffic.length ? filterObj.traffic.includes(trail.traffic) : trail;
     })
     .filter(trail => {
-      if (filterObj.type.length) {
-        return filterObj.type.includes(trail.type)
-      } else {
-        return trail
-      }
+      return filterObj.type.length ? filterObj.type.includes(trail.type) : trail;
     })
     .filter(trail => {
-      if (filterObj.activities.length) {
-        return filterObj.activities.every(activity => trail.activities.includes(activity))
-      } else {
-        return trail
-      }
+      return filterObj.difficulty ? filterObj.activities.every(activity => trail.activities.includes(activity)) : trail;
     }))
   }
 
