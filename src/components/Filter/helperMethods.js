@@ -18,6 +18,6 @@ export const filterByCatagories = (filterObj, trailList) => {
     return filterObj.type.length ? filterObj.type.includes(trail.type) : trail;
   })
   .filter(trail => {
-    return filterObj.difficulty ? filterObj.activities.every(activity => trail.activities.includes(activity)) : trail;
+    return filterObj.activities.length ? filterObj.activities.every(activity => trail.activities.includes(activity)) : trail;
   })
 }
