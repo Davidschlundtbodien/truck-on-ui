@@ -7,6 +7,7 @@ import FavoriteTrails from '../FavoriteTrails/FavoriteTrails';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import { Route, Switch } from 'react-router-dom';
 import trails from '../../sampleTrailData';
+import { filterByCatagories} from '../Filter/helperMethods';
 import './App.scss';
 
 const userLoggedIn = {id: 23, name: 'Eric'}
@@ -39,18 +40,7 @@ const App = () => {
   }
 
   const applyTrailFilters = (filterObj) => {
-    setFilteredTrails(allTrails.filter(trail => {
-      return filterObj.difficulty.length ? filterObj.difficulty.includes(trail.difficulty) : trail;
-    })
-    .filter(trail => {
-      return filterObj.traffic.length ? filterObj.traffic.includes(trail.traffic) : trail;
-    })
-    .filter(trail => {
-      return filterObj.type.length ? filterObj.type.includes(trail.type) : trail;
-    })
-    .filter(trail => {
-      return filterObj.difficulty ? filterObj.activities.every(activity => trail.activities.includes(activity)) : trail;
-    }))
+    setFilteredTrails(filterByCatagories(filterObj, allTrails))
   }
 
   return (
