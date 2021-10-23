@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useReducer } from 'react';
 import FilterModal from '../../FilterModal/FilterModal';
 import './Filter.scss';
 
@@ -27,6 +27,39 @@ const Filter = ({ cleanFilters, onApply, label }) => {
   const [waterfallActivity, setWaterfallActivity] = useState(false);
   const [riverActivity, setRiverActivity] = useState(false);
   const [skiingActivity, setSkiingActivity] = useState(false);
+
+  // const optionsState = [
+  //   {easyDifficulty: false},
+  //   {moderateDifficulty: false},
+  //   {hardDifficulty: false},
+  //   {pointToPoint: false},
+  //   {outAndBack: false},
+  //   {loop: false},
+  //   {lightTraffic: false},
+  //   {moderateTraffic: false},
+  //   {heavyTraffic: false},
+  //   {hikingActivity: false},
+  //   {snowShoeingActivity: false},
+  //   {fishingActivity: false},
+  //   {campingActivity: false},
+  //   {rockyActivity: false},
+  //   {mountainBikingActivity: false},
+  //   {viewsActivity: false},
+  //   {wildlifeActivity: false},
+  //   {waterfallActivity: false},
+  //   {riverActivity: false},
+  //   {skiingActivity: false}
+  // ]
+
+  // const [state, dispatch] = useReducer(reducer, optionsState);
+
+  // const reducer = (initialOptionsState, action) => {
+  //   if(action.type == 'toggle') {
+  //     return optionsState.map(option => {
+  //       if (optionsState)
+  //     })
+  //   }
+  // }
 
 
   // This useEffect is used to close the dropdown/modal if a user clicks anywhere outside
