@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import FilterModal from '../../FilterModal/FilterModal';
+import FilterModal from '../FilterModal/FilterModal';
 import './Filter.scss';
 
 const Filter = ({ handleTrailFilters, onApply, label }) => {
@@ -27,7 +27,6 @@ const Filter = ({ handleTrailFilters, onApply, label }) => {
   const [waterfallActivity, setWaterfallActivity] = useState(false);
   const [riverActivity, setRiverActivity] = useState(false);
   const [skiingActivity, setSkiingActivity] = useState(false);
-
 
   // This useEffect is used to close the dropdown/modal if a user clicks anywhere outside
   // of the dropdown/modal
@@ -156,6 +155,7 @@ const Filter = ({ handleTrailFilters, onApply, label }) => {
   return (
     <>
       <div className="filter">
+        <input type="text" placeholder="Search Trails"></input>
         <button className="filter-button" onClick={() => setFilterActive(!filterActive)} ref={buttonRef}>Filter</button>
       </div>
       { filterActive && (
