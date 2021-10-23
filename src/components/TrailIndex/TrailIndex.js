@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './TrailIndex.scss';
 import { useQuery } from '@apollo/client';
 import { TRAIL_INDEX }from '../../graphql/queries'
 import TrailCard from '../TrailCard/TrailCard'
+import Filter from '../Filter/Filter';
+import { filterByCatagories, cleanFilters } from '../Filter/helperMethods';
+import trails from '../../sampleTrailData';
 
-const TrailIndex = ({filteredTrails}) => {
+const TrailIndex = () => {
   const {loading, error, data} = useQuery(TRAIL_INDEX)
+  const allTrails = useState(trails);
+  const [filteredTrails, setFilteredTrails] = useState(trails);
 
   // if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
+
+  const handleTrailFilters = (filterObj) => {
+    const cleanedFilters = cleanFilters(filterObj)
+    setFilteredTrails(filterByCatagories(cleanedFilters, allTrails))
+  }
 
   const trailList = filteredTrails.map(trail => {
     return (
@@ -18,7 +28,8 @@ const TrailIndex = ({filteredTrails}) => {
 
   return (
     <section className="trail-index-container">
-      <h1>Trail Index/Home Test</h1>
+      <Filter handleTrailFilters={handleTrailFilters}/>
+      <h1>Trails</h1>
       {trailList}
     </section>
   );
