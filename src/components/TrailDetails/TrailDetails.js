@@ -1,6 +1,7 @@
 import React from 'react';
 import './TrailDetails.scss';
 import { useQuery } from '@apollo/client';
+import Comments from '../Comments/Comments';
 import { SINGLE_TRAIL }from '../../graphql/queries'
 
 const TrailDetails = ({trails, trailID}) => {
@@ -31,6 +32,7 @@ const TrailDetails = ({trails, trailID}) => {
           <p>Difficulty - {trail.difficulty}</p>
         </div>
       </section>
+      <Comments trailID={trailID}/>
     </article>
   );
 }
