@@ -17,9 +17,7 @@ const App = () => {
       <Switch>
         <Route exact path="/"
           render={() =>
-            <>
-              <TrailIndex />
-            </>
+             <TrailIndex />
           }
         />
         <Route exact path="/favorites/:userID"

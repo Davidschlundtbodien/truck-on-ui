@@ -3,7 +3,7 @@ export const cleanFilters = (filterObj) => {
   const cleanedFilters = categories.reduce((acc, category) => {
     acc[category] = Object.entries(filterObj[category]).filter(obj => obj[1] === true).map(obj => obj[0])
     return acc
-  }, {difficulty: [], type: [], traffic: [], activities: []})
+  }, {difficulty: [], routeType: [], traffic: [], tags: []})
   return cleanedFilters
 }
 
@@ -15,9 +15,9 @@ export const filterByCatagories = (filterObj, trailList) => {
     return filterObj.traffic.length ? filterObj.traffic.includes(trail.traffic) : trail;
   })
   .filter(trail => {
-    return filterObj.type.length ? filterObj.type.includes(trail.type) : trail;
+    return filterObj.routeType.length ? filterObj.routeType.includes(trail.routeType) : trail;
   })
   .filter(trail => {
-    return filterObj.activities.length ? filterObj.activities.every(activity => trail.activities.includes(activity)) : trail;
+    return filterObj.tags.length ? filterObj.tags.every(tag => trail.tags.map(activity => activity.name).includes(tag)) : trail;
   })
 }

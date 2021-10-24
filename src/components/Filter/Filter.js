@@ -94,11 +94,11 @@ const Filter = ({ handleTrailFilters, onApply, label }) => {
 
   const filterObj = {
     difficulty: {
-      "Easy": easyDifficulty,
-      "Moderate": moderateDifficulty,
-      "Hard": hardDifficulty
+      "Novice": easyDifficulty,
+      "Intermediate": moderateDifficulty,
+      "Expert": hardDifficulty
     },
-    type: {
+    routeType: {
       "Point to Point": pointToPoint,
       "Out and Back": outAndBack,
       "Loop": loop
@@ -108,7 +108,7 @@ const Filter = ({ handleTrailFilters, onApply, label }) => {
       "Moderate": moderateTraffic,
       "Heavy": heavyTraffic
     },
-    activities: {
+    tags: {
       "Hiking": hikingActivity,
       "Snowshoeing": snowShoeingActivity,
       "Fishing": fishingActivity,
