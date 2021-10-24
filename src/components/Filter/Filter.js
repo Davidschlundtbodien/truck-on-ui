@@ -155,7 +155,6 @@ const Filter = ({ handleTrailFilters, onApply, label }) => {
   return (
     <>
       <div className="filter">
-        <input type="text" placeholder="Search Trails"></input>
         <button className="filter-button" onClick={() => setFilterActive(!filterActive)} ref={buttonRef}>Filter</button>
       </div>
       { filterActive && (
