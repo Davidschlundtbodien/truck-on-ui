@@ -41,16 +41,20 @@ const TrailIndex = () => {
 
   return (
     <section className="trail-index-container">
-      <input 
-        className="search-input"
-        type="text" 
-        placeholder="Search Trails" 
-        value={searchQuery} 
-        onChange={event => setSearchQuery(event.target.value)}></input>
-      <Filter handleTrailFilters={handleTrailFilters}/>
-      <button className="reset-search" onClick={() => setSearchQuery('')}>Clear Search</button>
-      <h1>Trails</h1>
+      <div className="search-bar">
+        <input 
+          className="search-input"
+          type="text" 
+          placeholder="Search Trails" 
+          value={searchQuery} 
+          onChange={event => setSearchQuery(event.target.value)}></input>
+        <Filter handleTrailFilters={handleTrailFilters}/>
+        <button className="reset-search" onClick={() => setSearchQuery('')}>Clear Search</button>
+      </div>
+      <h1 className="trails-title">Trails</h1>
+      <section className="trail-card-container">
         {trailList}
+      </section>
     </section>
   );
 }
