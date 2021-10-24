@@ -9,12 +9,14 @@ import trails from '../../sampleTrailData';
 
 const TrailIndex = () => {
   const {loading, error, data} = useQuery(TRAIL_INDEX)
-  const [allTrails, setAllTrails] = useState(trails);
-  const [filteredTrails, setFilteredTrails] = useState(trails);
+  const [allTrails, setAllTrails] = useState([]);
+  const [filteredTrails, setFilteredTrails] = useState([]);
 
   useEffect(() => {
     if (data) {
+      console.log(data.trails)
       setAllTrails(data.trails)
+      setFilteredTrails(data.trails)
     }
   }, [data])
 
@@ -23,7 +25,7 @@ const TrailIndex = () => {
 
   const handleTrailFilters = (filterObj) => {
     const cleanedFilters = cleanFilters(filterObj)
-    setFilteredTrails(filterByCatagories(cleanedFilters, allTrails))
+    setFilteredTrails(filterByCatagories(cleanedFilters, filteredTrails))
   }
 
   const trailList = filteredTrails.map(trail => {
@@ -36,7 +38,7 @@ const TrailIndex = () => {
     <section className="trail-index-container">
       <Filter handleTrailFilters={handleTrailFilters}/>
       <h1>Trails</h1>
-      {trailList}
+        {trailList}
     </section>
   );
 }
