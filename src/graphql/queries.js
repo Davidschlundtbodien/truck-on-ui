@@ -16,15 +16,21 @@ export const TRAIL_INDEX = gql`
 `;
 
 export const SINGLE_TRAIL = gql`
-  query GetSingleTrail($id: Integer!) {
-    trail(id: $id) {
+  query trail ($id: ID!) {
+    trail (id: $id) {
       id
       name
       description
       elevationGain
       nearestCity
+      routeType
+      temp
+      conditions
       difficulty
       traffic
+      tags {
+        name
+      }
     }
   }
 `;
