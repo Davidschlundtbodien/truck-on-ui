@@ -1,0 +1,16 @@
+.comments-container {
+  background-color: white;
+  border-radius: 2em;
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comments-title {
+  margin-top: 1em;
+}
+
+.comment {
+  margin: 2em;
+}
