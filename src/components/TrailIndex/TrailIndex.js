@@ -9,7 +9,7 @@ import trails from '../../sampleTrailData';
 
 const TrailIndex = () => {
   const {loading, error, data} = useQuery(TRAIL_INDEX)
-  const allTrails = useState(trails);
+  const [allTrails, setAllTrails] = useState(trails);
   const [filteredTrails, setFilteredTrails] = useState(trails);
 
   useEffect(() => {
