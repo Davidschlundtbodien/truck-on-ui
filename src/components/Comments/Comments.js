@@ -14,7 +14,7 @@ const Comments = ({trailID}) => {
 
   const commentList = commentLog.map(comment => {
     return (
-      <article className='comment'>
+      <article key={comment.id} className='comment'>
         <p className='comment-content'>{comment.content}</p>
       </article>
     )

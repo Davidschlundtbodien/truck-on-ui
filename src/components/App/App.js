@@ -6,7 +6,6 @@ import FavoriteTrails from '../FavoriteTrails/FavoriteTrails';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import { Route, Switch } from 'react-router-dom';
 import './App.scss';
-import trails from '../../sampleTrailData';
 
 const userLoggedIn = {id: 23, name: 'Eric'}
 
@@ -18,9 +17,7 @@ const App = () => {
       <Switch>
         <Route exact path="/"
           render={() =>
-            <>  
-              <TrailIndex />
-            </>
+             <TrailIndex />
           }
         />
         <Route exact path="/favorites/:userID"
@@ -31,7 +28,7 @@ const App = () => {
         />
         <Route exact path="/trail/:id"
           render={({match}) => {
-              return <TrailDetails trails={trails} trailID={match.params.id} />
+              return <TrailDetails id={match.params.id} />
           }}
         />
         <Route path="*"
