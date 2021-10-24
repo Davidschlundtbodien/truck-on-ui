@@ -1,18 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState }from 'react';
 import './TrailDetails.scss';
 import { useQuery } from '@apollo/client';
 import Comments from '../Comments/Comments';
 import { SINGLE_TRAIL }from '../../graphql/queries'
 
-const TrailDetails = ({trails, trailID}) => {
+const TrailDetails = ({ id }) => {
+  const [trail, setTrail] = useState("")
+
   const {loading, error, data} = useQuery(SINGLE_TRAIL, {
-    variables: {  },
+    variables: { id: id },
   });
 
-  const trail = trails[trailID]
+  useEffect(() => {
+    if (data) {
+      setTrail(data.trail)
+    }
+  }, [data])
 
-  // if (loading) return null;
+
+  if (loading) return 'Loading...';
   if (error) return `Error! ${error}`;
+
 
   return (
     <article className="trail-details-container">
@@ -24,15 +32,16 @@ const TrailDetails = ({trails, trailID}) => {
       <section className="stats-container">
         <p className="details-header">Stats of {trail.name}</p>
         <div className="stats-list">
+          <p>Conditons - {trail.temp}F {trail.conditions} </p>
           <p>Nearest City - {trail.nearestCity}</p>
           <p>Elevation Gain - {trail.elevationGain} ft</p>
           <p>Total Distance - {trail.distance} mi</p>
           <p>Traffic - {trail.traffic}</p>
-          <p>Type - {trail.type}</p>
+          <p>Type - {trail.routeType}</p>
           <p>Difficulty - {trail.difficulty}</p>
         </div>
       </section>
-      <Comments trailID={trailID}/>
+      <Comments trailID={id}/>
     </article>
   );
 }
