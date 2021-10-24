@@ -14,7 +14,6 @@ const TrailIndex = () => {
 
   useEffect(() => {
     if (data) {
-      console.log(data.trails)
       setAllTrails(data.trails)
       setFilteredTrails(data.trails)
     }
