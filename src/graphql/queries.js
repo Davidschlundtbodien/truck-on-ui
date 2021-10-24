@@ -22,6 +22,7 @@ export const SINGLE_TRAIL = gql`
       name
       description
       elevationGain
+      distance
       nearestCity
       routeType
       temp
