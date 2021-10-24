@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import FilterModal from '../../FilterModal/FilterModal';
+import FilterModal from '../FilterModal/FilterModal';
 import './Filter.scss';
 
-const Filter = ({ cleanFilters, onApply, label }) => {
+const Filter = ({ handleTrailFilters, onApply, label }) => {
   const [filterActive, setFilterActive] = useState(false);
   const dropdownRef = useRef(undefined);
   const buttonRef = useRef(undefined);
@@ -28,7 +28,6 @@ const Filter = ({ cleanFilters, onApply, label }) => {
   const [riverActivity, setRiverActivity] = useState(false);
   const [skiingActivity, setSkiingActivity] = useState(false);
 
-
   // This useEffect is used to close the dropdown/modal if a user clicks anywhere outside
   // of the dropdown/modal
   useEffect(() => {
@@ -36,17 +35,17 @@ const Filter = ({ cleanFilters, onApply, label }) => {
     const isDropdownClick = dropdownRef.current && dropdownRef.current.contains(event.target);
     const isButtonClick = buttonRef.current && buttonRef.current.contains(event.target);
     const isModalClick = modalRef.current && modalRef.current.contains(event.target);
-  
+
       if (isDropdownClick || isButtonClick || isModalClick) {
         return;
       } else {
         setFilterActive(false);
       }
     };
-  
+
     document.addEventListener("mousedown", handleClickOutside); /* handle desktops */
     document.addEventListener("touchstart", handleClickOutside); /* handle touch devices */
-  
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside); /* handle desktops */
       document.removeEventListener("touchstart", handleClickOutside); /* handle touch devices */
@@ -57,7 +56,7 @@ const Filter = ({ cleanFilters, onApply, label }) => {
   // Take all categories and store them in an array.
   // Use a forEach to render a JSX button element for each element in the array
 
-  const options = 
+  const options =
     <section className="filter-options-container">
       <div className="difficulty-filters">
         <p className="difficulty-heading">Difficulty</p>
@@ -123,9 +122,9 @@ const Filter = ({ cleanFilters, onApply, label }) => {
       "Skiing": skiingActivity
     }
   }
-    
+
   const handleApply = () => {
-    cleanFilters(filterObj)
+    handleTrailFilters(filterObj)
     setFilterActive(false);
   }
 
@@ -156,6 +155,7 @@ const Filter = ({ cleanFilters, onApply, label }) => {
   return (
     <>
       <div className="filter">
+        <input type="text" placeholder="Search Trails"></input>
         <button className="filter-button" onClick={() => setFilterActive(!filterActive)} ref={buttonRef}>Filter</button>
       </div>
       { filterActive && (
