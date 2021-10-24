@@ -8,6 +8,9 @@ export const TRAIL_INDEX = gql`
       difficulty
       traffic
       routeType
+      tags {
+        name
+      }
     }
   }
 `;
