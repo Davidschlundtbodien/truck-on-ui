@@ -5,11 +5,34 @@
 
 .trail-card {
   margin: 2em;
-  padding: 1.2em;
+  padding-bottom: 1.2em;
   background: white;
+  border-radius: 10px;
+  height: 17em;
+}
+
+
+
+.card-image {
+  height: 70%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px 10px 0px 0px;
 }
 
 .activities-list {
   display: flex;
   justify-content: space-around;
+}
+
+@media screen and (min-width: 768px) {
+  .trail-card {
+    height: 30em;
+    width: 30em;
+  }
+
+  .trail-card:hover {
+    transition: all 0.5s ease-in-out;
+    transform: scale(1.05);
+  }
 }
