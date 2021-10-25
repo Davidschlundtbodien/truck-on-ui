@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import NavBar from '../NavBar/NavBar';
 import TrailIndex from '../TrailIndex/TrailIndex';
 import TrailDetails from '../TrailDetails/TrailDetails';
@@ -6,14 +6,27 @@ import FavoriteTrails from '../FavoriteTrails/FavoriteTrails';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import { Route, Switch } from 'react-router-dom';
 import './App.scss';
+import { USER_LOGIN }from '../../graphql/queries';
+import { useQuery } from '@apollo/client';
 
-const userLoggedIn = {id: 23, name: 'Eric'}
 
 const App = () => {
+  const {loading, error, data} = useQuery(USER_LOGIN, {
+    variables: { id: 4 },
+  });
+
+  useEffect(() => {
+    if (data) {
+      console.log(data.user.favorites)
+    }
+  }, [data])
+
+  if (loading) return 'Loading...';
+  if (error) return `Error! ${error.message}`;
 
   return (
     <main className="app-main">
-      <NavBar user={userLoggedIn}/>
+      <NavBar user={data.user}/>
       <Switch>
         <Route exact path="/"
           render={() =>
@@ -22,7 +35,10 @@ const App = () => {
         />
         <Route exact path="/favorites/:userID"
           render={({match}) =>
-            <FavoriteTrails userID={match.params.userID}
+            <FavoriteTrails
+            userID={match.params.userID}
+            user={data.user}
+            favoriteTrails={data.user.favorites}
             />
           }
         />
