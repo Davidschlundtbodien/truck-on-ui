@@ -25,4 +25,15 @@ describe('Truck On User flows', () => {
       .contains('Schofield Pass')
   })
 
+  it('should filter trails based on categories selected in filter options after clicking apply', () => {
+    cy.get('.filter-button')
+      .click()
+    cy.get('.filter-dropdown-content > .filter-options-container > .type-filters > :nth-child(3)')
+      .click()
+    cy.get('.filter-dropdown-content > .filter-options-container > .activity-filters > :nth-child(3)')
+      .click()
+    cy.get('.filter-apply-button')
+      .click()
+    cy.get('.trail-card > h1').contains('Loch Lomond')
+  })
 })
