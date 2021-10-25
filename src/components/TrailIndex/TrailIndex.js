@@ -10,6 +10,7 @@ const TrailIndex = () => {
   const {loading, error, data} = useQuery(TRAIL_INDEX)
   const [allTrails, setAllTrails] = useState([]);
   const [filteredTrails, setFilteredTrails] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleTrailFilters = (filterObj) => {
     const cleanedFilters = cleanFilters(filterObj)
@@ -26,7 +27,13 @@ const TrailIndex = () => {
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
-  const trailList = filteredTrails.map(trail => {
+  const trailList = filteredTrails.filter(trail => {
+    if (!searchQuery) {
+      return trail
+    } else if (trail.name.toLowerCase().includes(searchQuery.toLowerCase())) {
+      return trail
+    }
+  }).map(trail => {
     return (
       <TrailCard key={trail.id} trail={trail}/>
     )
@@ -34,9 +41,20 @@ const TrailIndex = () => {
 
   return (
     <section className="trail-index-container">
-      <Filter handleTrailFilters={handleTrailFilters}/>
-      <h1>Trails</h1>
+      <div className="search-bar">
+        <input 
+          className="search-input"
+          type="text" 
+          placeholder="Search Trails" 
+          value={searchQuery} 
+          onChange={event => setSearchQuery(event.target.value)}></input>
+        <Filter handleTrailFilters={handleTrailFilters}/>
+        <button className="reset-search" onClick={() => setSearchQuery('')}>Clear Search</button>
+      </div>
+      <h1 className="trails-title">Trails</h1>
+      <section className="trail-card-container">
         {trailList}
+      </section>
     </section>
   );
 }
