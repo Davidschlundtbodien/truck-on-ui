@@ -1,8 +1,13 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import TrailCard from '../TrailCard/TrailCard';
 import './FavoriteTrails.scss';
 
-const FavoriteTrails = ({userID, trails}) => {
+const FavoriteTrails = ({userID, user, favoriteTrails}) => {
+  const [trails, setTrails] = useState([])
+
+  useEffect(() => {
+    setTrails(favoriteTrails)
+  }, [])
 
   const trailList = trails.map(trail => {
     return (
@@ -10,11 +15,12 @@ const FavoriteTrails = ({userID, trails}) => {
     )
   })
 
+
   return (
     <section className="favorite-trails-container">
-      <h1>User {userID}s' Favorite Trails!</h1>
+      <h1>{user.name}s' Favorite Trails On a {user.vehicle}!</h1>
       <div>
-        {trailList}
+        {trails && <>{trailList}</>}
       </div>
     </section>
   );

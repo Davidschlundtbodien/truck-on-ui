@@ -15,6 +15,7 @@ const TrailDetails = ({ id }) => {
 
   useEffect(() => {
     if (data) {
+      console.log(data)
       setTrail(data.trail)
     }
   }, [data])
@@ -42,7 +43,7 @@ const TrailDetails = ({ id }) => {
             <p>Difficulty - {trail.difficulty}</p>
           </div>
         </section>
-        <Comments trailID={id}/>
+        {trail.comments && <Comments comments={trail.comments}/>}
       </article> :
       <Spinner />
       }

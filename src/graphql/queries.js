@@ -29,8 +29,33 @@ export const SINGLE_TRAIL = gql`
       conditions
       difficulty
       traffic
+      comments {
+        id
+        content
+      }
       tags {
         name
+      }
+    }
+  }
+`;
+
+
+export const USER_LOGIN = gql`
+  query user ($id: ID!) {
+    user (id: $id) {
+      id
+      name
+      vehicle
+      favorites {
+        id
+        name
+        difficulty
+        traffic
+        routeType
+        tags {
+          name
+        }
       }
     }
   }
