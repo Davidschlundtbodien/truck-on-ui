@@ -29,6 +29,10 @@ export const SINGLE_TRAIL = gql`
       conditions
       difficulty
       traffic
+      comments {
+        id
+        content
+      }
       tags {
         name
       }
