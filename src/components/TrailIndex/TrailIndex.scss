@@ -4,14 +4,24 @@
   align-items: center;
 }
 
+.search-bar {
+  margin-top: 2em;
+}
+
 .search-input {
   padding: 0.25rem 0.75rem;
+  width: 8em;
   border-radius: 0.5rem;
+  background-color: #464646;
   font-size: 16px;
   cursor: pointer;
   line-height: 1.5;
   border: transparent;
   margin-right: 5px;
+}
+
+::placeholder {
+  color: white;
 }
 
 .reset-search {
@@ -22,14 +32,20 @@
   line-height: 1.5;
   border: transparent;
   margin-left: 5px;
+  background-color: #464646;
+  color: white;
+}
+
+.reset-search:hover {
+  background-color: #3d3d3d;
 }
 
 .trails-title {
   color: white;
-  margin-left: 1em;
+  margin-left: auto;
   margin-right: auto;
   margin-top: 1em;
-  width: 4em;
+  width: 12.5em;
   text-align: center;
 }
 
