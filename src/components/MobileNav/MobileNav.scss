@@ -1,0 +1,40 @@
+.mobile-navbar {
+  width: 100vw;
+  height: 3.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #121212;
+  position: absolute;
+  bottom: 0;
+  z-index: 20;
+  box-shadow: 0px 0px 5px rgb(255 255 255 / 0.2);
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+.mobile-navbar-link {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-icon, .heart-icon {
+  padding-bottom: 0.2em;
+  height: 1.5em;
+}
+
+.mobile-search-title, .mobile-favorites-title {
+  font-weight: 600;
+  color: #939799;
+}
+
+@media (min-width: 768px) {
+  .mobile-navbar {
+    display: none;
+  }
+ }
