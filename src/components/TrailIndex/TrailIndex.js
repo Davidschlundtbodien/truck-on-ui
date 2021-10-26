@@ -28,14 +28,11 @@ const TrailIndex = () => {
   if (error) return `Error! ${error.message}`;
 
   const trailList = filteredTrails.filter(trail => {
-    const result = () => {
-      if (!searchQuery) {
-        return trail
-      } else if (trail.name.toLowerCase().includes(searchQuery.toLowerCase())) {
-        return trail
-      }
+    if (!searchQuery) {
+      return trail
+    } else if (trail.name.toLowerCase().includes(searchQuery.toLowerCase())) {
+      return trail
     }
-    return result
   }).map(trail => {
     return (
       <TrailCard key={trail.id} trail={trail}/>
