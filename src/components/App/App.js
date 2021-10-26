@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import NavBar from '../NavBar/NavBar';
 import MobileNav from '../MobileNav/MobileNav';
 import TrailIndex from '../TrailIndex/TrailIndex';
@@ -15,12 +15,6 @@ const App = () => {
   const {loading, error, data} = useQuery(USER_LOGIN, {
     variables: { id: 4 },
   });
-
-  useEffect(() => {
-    if (data) {
-      console.log(data.user.favorites)
-    }
-  }, [data])
 
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
