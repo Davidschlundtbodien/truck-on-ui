@@ -28,11 +28,14 @@ const TrailIndex = () => {
   if (error) return `Error! ${error.message}`;
 
   const trailList = filteredTrails.filter(trail => {
-    if (!searchQuery) {
-      return trail
-    } else if (trail.name.toLowerCase().includes(searchQuery.toLowerCase())) {
-      return trail
+    const result = () => {
+      if (!searchQuery) {
+        return trail
+      } else if (trail.name.toLowerCase().includes(searchQuery.toLowerCase())) {
+        return trail
+      }
     }
+    return result
   }).map(trail => {
     return (
       <TrailCard key={trail.id} trail={trail}/>
@@ -42,13 +45,13 @@ const TrailIndex = () => {
   return (
     <section className="trail-index-container">
       <div className="search-bar">
-        <input 
+        <input
           className="search-input"
-          type="text" 
-          placeholder="Search Trails" 
-          value={searchQuery} 
+          type="text"
+          placeholder="Search Trails"
+          value={searchQuery}
           onChange={event => setSearchQuery(event.target.value)}></input>
-        <Filter 
+        <Filter
           handleTrailFilters={handleTrailFilters}
           setFilteredTrails={setFilteredTrails}
           allTrails={allTrails}
