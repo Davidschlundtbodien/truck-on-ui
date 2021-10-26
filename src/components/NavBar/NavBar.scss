@@ -4,7 +4,6 @@
 
 @media (min-width: 768px) {
   .nav-bar {
-    // margin-right: auto;
     display: flex;
     justify-content: space-between;
     width: 20em;
@@ -12,14 +11,21 @@
     position: absolute;
     top: 0;
     right: 2em;
-    // margin-right: 2em;
-    margin-left: auto;
+    // margin-left: auto;
     padding-top: 2rem;
     font-size: 0.8em;
   } 
   .link {
     text-decoration: none;
-    color: white;
+  }
+
+  .home-nav-text, .favorite-nav-text {
+    color: #939799;
+  }
+
+  .home-nav-text:hover, .favorite-nav-text:hover {
+    transition: all 0.2s ease-in-out;
+    transform: scale(1.05);
   }
  }
 
