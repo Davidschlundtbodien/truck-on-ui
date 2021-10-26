@@ -1,15 +1,12 @@
 .trail-index-container {
-}
-
-.search-bar {
-  width: 25em;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .search-input {
   padding: 0.25rem 0.75rem;
-  border-radius: 0.125rem;
+  border-radius: 0.5rem;
   font-size: 16px;
   cursor: pointer;
   line-height: 1.5;
@@ -19,7 +16,7 @@
 
 .reset-search {
   padding: 0.25rem 0.75rem;
-  border-radius: 0.125rem;
+  border-radius: 0.5rem;
   font-size: 16px;
   cursor: pointer;
   line-height: 1.5;
@@ -39,6 +36,12 @@
 @media screen and (min-width: 768px) {
   .trail-card-container {
     display: flex;
-    overflow-x: scroll;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .trails-title {
+    margin-left: 3em;
   }
 }
