@@ -4,6 +4,7 @@ import './TrailDetails.scss';
 import { useQuery } from '@apollo/client';
 import Comments from '../Comments/Comments';
 import Spinner from '../Spinner/Spinner';
+import PageNotFound from '../PageNotFound/PageNotFound';
 import { imageList } from '../../images/imageList';
 import { SINGLE_TRAIL }from '../../graphql/queries';
 
@@ -21,12 +22,11 @@ const TrailDetails = ({ id }) => {
     }
   }, [data])
 
-  if (error) return `Error! ${error}`;
+  if (error) return <PageNotFound />;
 
   const trailTags = trail.tags && trail.tags.map(tag => {
       return <p className="tag">{tag.name}</p>
-    })
-  
+  })
 
   const randomImgIndex = Math.floor(Math.random() * (imageList.length))
 
@@ -37,7 +37,7 @@ const TrailDetails = ({ id }) => {
         <img className="detail-image" alt={trail.name} src={imageList[randomImgIndex]}></img>
         <div className="picture-overlay">
           <p className="trail-name">{trail.name}</p>
-          <Link className="back-home" to="/">Back to Home</Link>
+          <Link className="back-home" to="/">Back to Explore</Link>
         </div>
         <section className="description-container">
           <p className="details-header">Summary</p>
