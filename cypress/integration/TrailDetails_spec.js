@@ -2,12 +2,12 @@ describe('Trail details display', () => {
   beforeEach(() => {
     cy.interceptGraphQlQuery()
     cy.visit('http://localhost:3000/')
+    cy.get('[href="/trail/2"] > .trail-card > .card-image')
+      .click()
   })
 
   it('should display a single trail with expanded detail', () => {
-    cy.get('[href="/trail/2"] > .trail-card > .card-image')
-      .click()
-      .url('http://localhost:3000/trail/2')
+    cy.url('http://localhost:3000/trail/2')
     cy.get('.trail-name')
       .contains('Black Bear Pass')
     cy.get('.stats-container')
@@ -23,8 +23,6 @@ describe('Trail details display', () => {
   })
 
   it('should return the user to the trail index when the home button in clicked in the navbar', () => {
-    cy.get('[href="/trail/5"] > .trail-card > .card-image')
-      .click()
     cy.get('.home-nav-text')
       .click()
       .url('http://localhost:3000/')
