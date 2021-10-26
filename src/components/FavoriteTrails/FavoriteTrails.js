@@ -7,7 +7,7 @@ const FavoriteTrails = ({userID, user, favoriteTrails}) => {
 
   useEffect(() => {
     setTrails(favoriteTrails)
-  }, [])
+  }, [favoriteTrails])
 
   const trailList = trails.map(trail => {
     return (

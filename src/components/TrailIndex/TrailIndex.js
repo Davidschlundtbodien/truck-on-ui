@@ -42,13 +42,13 @@ const TrailIndex = () => {
   return (
     <section className="trail-index-container">
       <div className="search-bar">
-        <input 
+        <input
           className="search-input"
-          type="text" 
-          placeholder="Search Trails" 
-          value={searchQuery} 
+          type="text"
+          placeholder="Search Trails"
+          value={searchQuery}
           onChange={event => setSearchQuery(event.target.value)}></input>
-        <Filter 
+        <Filter
           handleTrailFilters={handleTrailFilters}
           setFilteredTrails={setFilteredTrails}
           allTrails={allTrails}
