@@ -16,7 +16,6 @@ const TrailDetails = ({ id }) => {
 
   useEffect(() => {
     if (data) {
-      console.log(data)
       setTrail(data.trail)
     }
   }, [data])
@@ -24,9 +23,9 @@ const TrailDetails = ({ id }) => {
   if (error) return `Error! ${error}`;
 
   const trailTags = trail.tags && trail.tags.map(tag => {
-      return <p className="tag">{tag.name}</p>
+      return <p key={tag.name} className="tag">{tag.name}</p>
     })
-  
+
 
   const randomImgIndex = Math.floor(Math.random() * (imageList.length))
 
