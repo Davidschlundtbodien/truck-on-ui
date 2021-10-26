@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import comments from './sampleComments'
+import React from 'react';
 import './Comments.scss'
 
 const Comments = ({comments}) => {
