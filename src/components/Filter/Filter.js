@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import FilterModal from '../FilterModal/FilterModal';
 import './Filter.scss';
 
-const Filter = ({ handleTrailFilters, onApply, label }) => {
+const Filter = ({ handleTrailFilters, setFilteredTrails, allTrails }) => {
   const [filterActive, setFilterActive] = useState(false);
   const dropdownRef = useRef(undefined);
   const buttonRef = useRef(undefined);
@@ -128,28 +128,29 @@ const Filter = ({ handleTrailFilters, onApply, label }) => {
     setFilterActive(false);
   }
 
-  const resetFilters = () => {
-    setEasyDifficulty(false);
-    setModerateDifficulty(false);
-    setHardDifficulty(false);
-    setPointToPoint(false);
-    setOutAndBack(false);
-    setLoop(false);
-    setLightTraffic(false);
-    setModerateTraffic(false);
-    setHeavyTraffic(false);
-    setHikingActivity(false);
-    setSnowshoeingActivity(false);
-    setFishingActivity(false);
-    setCampingActivity(false);
-    setRockyActivity(false);
-    setMountainBikingActivity(false);
-    setViewsActivity(false);
-    setWildlifeActivity(false);
-    setWaterfallActivity(false);
-    setRiverActivity(false);
-    setSkiingActivity(false);
-    setFilterActive(false);
+  const resetFilters = async (event) => {
+    event.preventDefault()
+    await setEasyDifficulty(false);
+    await setModerateDifficulty(false);
+    await setHardDifficulty(false);
+    await setPointToPoint(false);
+    await setOutAndBack(false);
+    await setLoop(false);
+    await setLightTraffic(false);
+    await setModerateTraffic(false);
+    await setHeavyTraffic(false);
+    await setHikingActivity(false);
+    await setSnowshoeingActivity(false);
+    await setFishingActivity(false);
+    await setCampingActivity(false);
+    await setRockyActivity(false);
+    await setMountainBikingActivity(false);
+    await setViewsActivity(false);
+    await setWildlifeActivity(false);
+    await setWaterfallActivity(false);
+    await setRiverActivity(false);
+    await setSkiingActivity(false);
+    setFilteredTrails(allTrails);
   }
 
   return (
@@ -165,7 +166,7 @@ const Filter = ({ handleTrailFilters, onApply, label }) => {
             </div>
             <div className="filter-dropdown-actions">
               <button className="filter-apply-button" onClick={() => handleApply()}>Apply Filters</button>
-              <button className="filter-reset-button" onClick={() => resetFilters()}>Reset Filters</button>
+              <button className="filter-reset-button" onClick={(event) => resetFilters(event)}>Reset Filters</button>
             </div>
           </section>
         </>
