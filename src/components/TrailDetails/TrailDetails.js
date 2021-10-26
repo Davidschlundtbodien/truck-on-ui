@@ -7,15 +7,12 @@ import Spinner from '../Spinner/Spinner';
 import { imageList } from '../../images/imageList';
 import { SINGLE_TRAIL }from '../../graphql/queries';
 
-
 const TrailDetails = ({ id }) => {
   const [trail, setTrail] = useState("")
 
   const {loading, error, data} = useQuery(SINGLE_TRAIL, {
     variables: { id: id },
   });
-
-  const randomImgIndex = Math.floor(Math.random() * (imageList.length))
 
   useEffect(() => {
     if (data) {
@@ -25,6 +22,13 @@ const TrailDetails = ({ id }) => {
   }, [data])
 
   if (error) return `Error! ${error}`;
+
+  const trailTags = trail.tags && trail.tags.map(tag => {
+      return <p className="tag">{tag.name}</p>
+    })
+  
+
+  const randomImgIndex = Math.floor(Math.random() * (imageList.length))
 
   return (
     <>
@@ -49,6 +53,12 @@ const TrailDetails = ({ id }) => {
             <p>Traffic - {trail.traffic}</p>
             <p>Type - {trail.routeType}</p>
             <p>Difficulty - {trail.difficulty}</p>
+          </div>
+        </section>
+        <section className="tags-container">
+          <p className="tags-header">Activities</p>
+          <div className="tags-list">
+            {trailTags}
           </div>
         </section>
         {trail.comments && <Comments comments={trail.comments}/>}
