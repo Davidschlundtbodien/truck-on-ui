@@ -11,6 +11,12 @@ import highWheel from "./High_Wheel.jpeg";
 import miniMoab from "./Mini_Moab.jpeg";
 import pearlPass from "./Pearl_Pass.jpeg";
 import imogenePass from "./Imogene_Pass.jpeg";
+import billMooreLake from "./Bill_Moore_Lake.jpeg";
+import democratMountain from "./Democrat_Mountain.jpeg";
+import italianCreek from "./Italian_Creek.jpeg";
+import lochLomond from "./Loch_Lomond.jpeg";
+import radicalHill from "./Radical_Hill.jpeg";
+import taylorPass from "./Taylor_Pass.jpeg";
 
 export const imageList = [
   argentinePass, 
@@ -25,5 +31,11 @@ export const imageList = [
   highWheel,
   miniMoab,
   pearlPass,
-  imogenePass
+  imogenePass,
+  billMooreLake,
+  democratMountain,
+  italianCreek,
+  lochLomond,
+  radicalHill,
+  taylorPass
 ]
