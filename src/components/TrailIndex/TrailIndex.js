@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/client';
 import { TRAIL_INDEX }from '../../graphql/queries'
 import TrailCard from '../TrailCard/TrailCard'
 import Filter from '../Filter/Filter';
+import Spinner from '../Spinner/Spinner';
 import { filterByCatagories, cleanFilters } from '../Filter/helperMethods';
 
 const TrailIndex = () => {
@@ -40,26 +41,31 @@ const TrailIndex = () => {
   })
 
   return (
-    <section className="trail-index-container">
-      <div className="search-bar">
-        <input
-          className="search-input"
-          type="text"
-          placeholder="Search Trails"
-          value={searchQuery}
-          onChange={event => setSearchQuery(event.target.value)}></input>
-        <Filter
-          handleTrailFilters={handleTrailFilters}
-          setFilteredTrails={setFilteredTrails}
-          allTrails={allTrails}
-        />
-        <button className="reset-search" onClick={() => setSearchQuery('')}>Clear Search</button>
-      </div>
-      <h1 className="trails-title">Colorado Offroad Trails</h1>
-      <section className="trail-card-container">
-        {trailList}
-      </section>
-    </section>
+    <>
+      {!loading ?
+        <section className="trail-index-container">
+          <div className="search-bar">
+            <input
+              className="search-input"
+              type="text"
+              placeholder="Search Trails"
+              value={searchQuery}
+              onChange={event => setSearchQuery(event.target.value)}></input>
+            <Filter
+              handleTrailFilters={handleTrailFilters}
+              setFilteredTrails={setFilteredTrails}
+              allTrails={allTrails}
+            />
+            <button className="reset-search" onClick={() => setSearchQuery('')}>Clear Search</button>
+          </div>
+          <h1 className="trails-title">Colorado Offroad Trails</h1>
+          <section className="trail-card-container">
+            {trailList}
+          </section>
+        </section> :
+        <Spinner />
+      }
+    </>
   );
 }
 

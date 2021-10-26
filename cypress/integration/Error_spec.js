@@ -9,7 +9,7 @@ describe('Error handling', () => {
   })
 
   it('should have a 404 page that directs the user back to the index', () =>{
-    cy.get('h1 > a')
+    cy.get('.error-explore-link')
       .click()
     cy.get('.trail-card-container >:nth-child(1)')
       .contains('Mosquito Pass')

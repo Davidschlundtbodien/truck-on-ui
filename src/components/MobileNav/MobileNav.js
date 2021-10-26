@@ -10,7 +10,7 @@ const MobileNav = ({user}) => {
        <NavLink className="link" exact to="/" activeStyle={{filter: "brightness(0) invert(1)"}}>
          <div className="mobile-navbar-link">
            <img className="search-icon" src={searchIcon} alt="Magnifying Glass"></img>
-           <p className="mobile-search-title">Search Trails</p>
+           <p className="mobile-search-title">Explore Trails</p>
          </div>
       </NavLink>
       <NavLink className="link" exact to={`/favorites/${user.id}`} activeStyle={{filter: "brightness(0) invert(1)"}}>
