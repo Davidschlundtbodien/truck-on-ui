@@ -16,7 +16,7 @@
   line-height: 1.5;
  }
  
- .filter-button:hover {
+ .filter-button:hover, .active-filter:hover, .filter-apply-button:hover, .filter-reset-button:hover {
   background-color: #176dde;
  }
  .filter-button:focus {
@@ -25,16 +25,17 @@
  }
 
 .filter-dropdown {
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 10px 0 rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   padding: 0.25rem;
   display: none;
   width: 20rem;
   z-index: 50;
-  left: 50.5vw;
+  left: 49vw;
   max-height: calc(100vh - 152px);
   position: absolute;
   margin-top: 0.5rem;
-  background-color: white;
+  background-color: #181818;
+  color: white;
  }
 
  .filter-dropdown-content {
@@ -48,11 +49,23 @@
  .active-filter {
    background-color: #2b7de9;
    color: white;
-   border: 0;
+   border: 1px solid #2b7de9;
  }
 
  .active-filter, .default {
    font-weight: 600;
+   cursor: pointer;
+   border-radius: 0.25rem;
+ }
+
+ .default {
+   background-color: #181818;
+   color: white;
+   border: 1px solid white;
+ }
+
+ .default:hover {
+   background-color: #464646;
  }
 
  .filter-dropdown-actions {
@@ -67,7 +80,7 @@
  }
 
  .filter-apply-button, .filter-reset-button {
-  border-radius: 0.125rem;
+  border-radius: 0.25rem;
   padding: 0.25rem 0.5rem;
   background-color: #2b7de9;
   border-color: transparent;
