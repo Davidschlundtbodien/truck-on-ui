@@ -21,4 +21,12 @@ describe('Trail details display', () => {
     cy.get('.comments-container')
       .contains('WHERE ARE THE TURTLES?!')
   })
+
+  it('should return the user to the trail index when the home button in clicked in the navbar', () => {
+    cy.get('[href="/trail/5"] > .trail-card > .card-image')
+      .click()
+    cy.get('.home-nav-text')
+      .click()
+      .url('http://localhost:3000/')
+  })
 })
