@@ -29,7 +29,7 @@ const App = () => {
     <main className="app-main">
       <div className="app-header">
         <p className="welcome-user">{`Welcome, ${data.user.name}`}</p>
-        <h1 className="truck-on-title">Truck On</h1>
+        <h1 className="truck-on-title">Truck On™</h1>
         <NavBar user={data.user}/>
       </div>
       <MobileNav user={data.user} />
