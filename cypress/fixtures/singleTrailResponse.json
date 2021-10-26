@@ -1,1 +1,77 @@
-{"data":{"trail":{"id":"1","name":"Mosquito Pass","description":"Mosquito Pass is a 16.2 mile moderately trafficked point-to-point trail located near Leadville, Colorado that features beautiful wildflowers and is rated as moderate. The trail is primarily used for hiking, offroad driving, and snowshoeing and is best used from May until September.","elevationGain":2874,"distance":16,"nearestCity":"Leadville, Alma","routeType":"Point to Point","temp":50.9,"conditions":"clear sky","difficulty":"Intermediate","traffic":"Moderate","tags":[{"name":"Hiking","__typename":"Tag"},{"name":"Snowshoeing","__typename":"Tag"},{"name":"Views","__typename":"Tag"},{"name":"Rocky","__typename":"Tag"}],"__typename":"Trail"}}}
+{
+  "data": {
+    "trail": {
+      "id": "2",
+      "name": "Black Bear Pass ",
+      "description": "Black Bear Pass is a 8.5 mile moderately trafficked point-to-point trail located near Telluride, Colorado that features a waterfall and is rated as difficult. Also known as 'Colorado's Deadliest Trail', the trail has a shelf road with some technical spots and very narrow switchbacks.",
+      "elevationGain": 1843,
+      "distance": 8,
+      "nearestCity": "Telluride",
+      "routeType": "Point to Point",
+      "temp": 20.16,
+      "conditions": "light rain",
+      "difficulty": "Expert",
+      "traffic": "Moderate",
+      "comments": [
+        {
+          "id": "122",
+          "content": "You know what they say. 'Fool me once, strike one, but fool me twice...strike three.",
+          "__typename": "Comment"
+        },
+        {
+          "id": "144",
+          "content": "There were these huge bins of clothes and everybody was rifling through them like crazy. And I grabbed one and it fit! So I don't think that this is totally just a woman's suit. At the very least it's bisexual.",
+          "__typename": "Comment"
+        },
+        {
+          "id": "495",
+          "content": "I am running away from my responsibilities. And it feels good.",
+          "__typename": "Comment"
+        },
+        {
+          "id": "501",
+          "content": "I love my employees even though I hit one of you with my car.",
+          "__typename": "Comment"
+        },
+        {
+          "id": "509",
+          "content": "WHERE ARE THE TURTLES?!",
+          "__typename": "Comment"
+        },
+        {
+          "id": "543",
+          "content": "You may look around and see two groups here: white collar, blue collar. But I don't see it that way, and you know why not? Because I am collar-blind.",
+          "__typename": "Comment"
+        },
+        {
+          "id": "579",
+          "content": "There is no such thing as an appropriate joke, that's why it's a joke.",
+          "__typename": "Comment"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Hiking",
+          "__typename": "Tag"
+        },
+        {
+          "name": "Mountain Biking",
+          "__typename": "Tag"
+        },
+        {
+          "name": "Waterfall",
+          "__typename": "Tag"
+        },
+        {
+          "name": "River",
+          "__typename": "Tag"
+        },
+        {
+          "name": "Rocky",
+          "__typename": "Tag"
+        }
+      ],
+      "__typename": "Trail"
+    }
+  }
+}

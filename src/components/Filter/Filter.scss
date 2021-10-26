@@ -15,7 +15,7 @@
   font-size: 1em;
   line-height: 1.5;
  }
- 
+
  .filter-button:hover, .active-filter:hover, .filter-apply-button:hover, .filter-reset-button:hover {
   background-color: #176dde;
  }
@@ -36,6 +36,11 @@
   margin-top: 0.5rem;
   background-color: #181818;
   color: white;
+  overflow-y: scroll;
+ }
+
+ .filter-dropdown::-webkit-scrollbar {
+   display: none;
  }
 
  .filter-dropdown-content {

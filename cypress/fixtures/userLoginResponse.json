@@ -1,0 +1,175 @@
+{
+  "data": {
+    "user": {
+      "id": "4",
+      "name": "Test Mc Testface",
+      "vehicle": "Honda Accord",
+      "favorites": [
+        {
+          "id": "14",
+          "name": "Engineer Pass",
+          "distance": 20,
+          "difficulty": "Intermediate",
+          "traffic": "Moderate",
+          "routeType": "Point to Point",
+          "tags": [
+            {
+              "name": "River",
+              "__typename": "Tag"
+            },
+            {
+              "name": "Views",
+              "__typename": "Tag"
+            },
+            {
+              "name": "Waterfall",
+              "__typename": "Tag"
+            },
+            {
+              "name": "Wildlife",
+              "__typename": "Tag"
+            },
+            {
+              "name": "Fishing",
+              "__typename": "Tag"
+            }
+          ],
+          "__typename": "Trail"
+        },
+        {
+          "id": "35",
+          "name": "Pearl Pass",
+          "distance": 22,
+          "difficulty": "Expert",
+          "traffic": "Light",
+          "routeType": "Point to Point",
+          "tags": [
+            {
+              "name": "Hiking",
+              "__typename": "Tag"
+            },
+            {
+              "name": "Mountain Biking",
+              "__typename": "Tag"
+            },
+            {
+              "name": "River",
+              "__typename": "Tag"
+            },
+            {
+              "name": "Snowshoeing",
+              "__typename": "Tag"
+            },
+            {
+              "name": "Views",
+              "__typename": "Tag"
+            },
+            {
+              "name": "Skiing",
+              "__typename": "Tag"
+            }
+          ],
+          "__typename": "Trail"
+        },
+        {
+          "id": "7",
+          "name": "Red Cone 4x4 Trail",
+          "distance": 10,
+          "difficulty": "Expert",
+          "traffic": "Heavy",
+          "routeType": "Loop",
+          "tags": [
+            {
+              "name": "Views",
+              "__typename": "Tag"
+            },
+            {
+              "name": "Wildlife",
+              "__typename": "Tag"
+            },
+            {
+              "name": "Rocky",
+              "__typename": "Tag"
+            }
+          ],
+          "__typename": "Trail"
+        },
+        {
+          "id": "5",
+          "name": "Weston Pass",
+          "distance": 34,
+          "difficulty": "Novice",
+          "traffic": "Moderate",
+          "routeType": "Point to Point",
+          "tags": [
+            {
+              "name": "Views",
+              "__typename": "Tag"
+            },
+            {
+              "name": "Wildlife",
+              "__typename": "Tag"
+            },
+            {
+              "name": "Skiing",
+              "__typename": "Tag"
+            }
+          ],
+          "__typename": "Trail"
+        },
+        {
+          "id": "32",
+          "name": "Hessie Townsite",
+          "distance": 0,
+          "difficulty": "Novice",
+          "traffic": "Heavy",
+          "routeType": "Out and Back",
+          "tags": [
+            {
+              "name": "Fishing",
+              "__typename": "Tag"
+            },
+            {
+              "name": "Hiking",
+              "__typename": "Tag"
+            },
+            {
+              "name": "Lake",
+              "__typename": "Tag"
+            },
+            {
+              "name": "River",
+              "__typename": "Tag"
+            },
+            {
+              "name": "Rocky",
+              "__typename": "Tag"
+            },
+            {
+              "name": "Snowshoeing",
+              "__typename": "Tag"
+            },
+            {
+              "name": "Views",
+              "__typename": "Tag"
+            },
+            {
+              "name": "Waterfall",
+              "__typename": "Tag"
+            },
+            {
+              "name": "Wildlife",
+              "__typename": "Tag"
+            },
+            {
+              "name": "Camping",
+              "__typename": "Tag"
+            }
+          ],
+          "__typename": "Trail"
+        }
+      ],
+      "__typename": "User"
+    }
+  }
+}
