@@ -55,7 +55,7 @@ const TrailIndex = () => {
         />
         <button className="reset-search" onClick={() => setSearchQuery('')}>Clear Search</button>
       </div>
-      <h1 className="trails-title">Trails</h1>
+      <h1 className="trails-title">Colorado Offroad Trails</h1>
       <section className="trail-card-container">
         {trailList}
       </section>
