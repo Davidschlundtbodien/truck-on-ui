@@ -1,10 +1,37 @@
 .app-main {
-  background-color: #282c34;
+  background-color: #121212;
   height: 100vh;
   width: 100vw;
   overflow-y: scroll;
+  // position: relative;
 }
 
 .app-main::-webkit-scrollbar {
   display: none;
+}
+
+.app-header {
+  position: relative;
+}
+
+.welcome-user {
+  display: none;
+}
+
+.truck-on-title {
+  color: white;
+  text-align: center;
+  width: 100%;
+  padding-top: 2rem;
+  font-family: "Unna", serif;
+  font-size: 2.5em;
+}
+
+@media (min-width: 768px) {
+  .welcome-user {
+    display: block;
+    color: white;
+    padding: 2rem;
+    position: absolute;
+  }
 }

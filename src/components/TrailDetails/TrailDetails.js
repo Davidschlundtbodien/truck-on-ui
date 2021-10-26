@@ -1,10 +1,11 @@
 import React, { useEffect, useState }from 'react';
+import { Link } from 'react-router-dom';
 import './TrailDetails.scss';
 import { useQuery } from '@apollo/client';
 import Comments from '../Comments/Comments';
 import Spinner from '../Spinner/Spinner';
+import { imageList } from '../../images/imageList';
 import { SINGLE_TRAIL }from '../../graphql/queries';
-
 
 const TrailDetails = ({ id }) => {
   const [trail, setTrail] = useState("")
@@ -22,11 +23,22 @@ const TrailDetails = ({ id }) => {
 
   if (error) return `Error! ${error}`;
 
+  const trailTags = trail.tags && trail.tags.map(tag => {
+      return <p className="tag">{tag.name}</p>
+    })
+  
+
+  const randomImgIndex = Math.floor(Math.random() * (imageList.length))
+
   return (
     <>
       {!loading ?
       <article className="trail-details-container">
-        <p className="trail-name">{trail.name}</p>
+        <img className="detail-image" alt={trail.name} src={imageList[randomImgIndex]}></img>
+        <div className="picture-overlay">
+          <p className="trail-name">{trail.name}</p>
+          <Link className="back-home" to="/">Back to Home</Link>
+        </div>
         <section className="description-container">
           <p className="details-header">Summary</p>
           <p>{trail.description}</p>
@@ -41,6 +53,12 @@ const TrailDetails = ({ id }) => {
             <p>Traffic - {trail.traffic}</p>
             <p>Type - {trail.routeType}</p>
             <p>Difficulty - {trail.difficulty}</p>
+          </div>
+        </section>
+        <section className="tags-container">
+          <p className="tags-header">Activities</p>
+          <div className="tags-list">
+            {trailTags}
           </div>
         </section>
         {trail.comments && <Comments comments={trail.comments}/>}

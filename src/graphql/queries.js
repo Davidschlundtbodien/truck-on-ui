@@ -7,6 +7,7 @@ export const TRAIL_INDEX = gql`
       name
       difficulty
       traffic
+      distance
       routeType
       tags {
         name
@@ -50,6 +51,7 @@ export const USER_LOGIN = gql`
       favorites {
         id
         name
+        distance
         difficulty
         traffic
         routeType

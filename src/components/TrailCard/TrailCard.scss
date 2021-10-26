@@ -4,12 +4,87 @@
 }
 
 .trail-card {
-  margin: 2em;
-  padding: 1.2em;
+  margin: 1.5em;
   background: white;
+  border-radius: 1em;
+  width: 95vw;
+  background-color: #121212;
+  color: white;
+  box-shadow: 0px 0px 15px rgb(255 255 255 / 0.2);
 }
 
-.activities-list {
+.card-image {
+  height: 12em;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.card-text-container {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  width: 100%;
+  height: 35%;
+  padding: 0.8em;
+}
+
+.card-details {
+  margin-top: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.card-name {
+  border-bottom: 1px solid #efefef;
+  padding-bottom: 0.2em;
+  font-size: 1.5em;
+}
+
+.card-difficulty {
+  border: 1px solid black;
+  padding: 0.25em 1em;
+  color: white;
+  border-radius: 0.7em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  margin-right: 2em;
+}
+
+.traffic-type {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 3em;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: #2b7de9;
+}
+
+.red {
+  background-color:#f7022a;
+}
+
+@media screen and (min-width: 768px) {
+  .trail-card {
+    width: 25em;
+    height: 22em;
+    justify-content: space-around;
+  }
+
+  .card-image {
+    height: 60%;
+  }
+
+  .trail-card:hover {
+    transition: all 0.4s ease-in-out;
+    transform: scale(1.05);
+  }
 }

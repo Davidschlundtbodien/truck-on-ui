@@ -18,8 +18,8 @@ const FavoriteTrails = ({userID, user, favoriteTrails}) => {
 
   return (
     <section className="favorite-trails-container">
-      <h1>{user.name}s' Favorite Trails On a {user.vehicle}!</h1>
-      <div>
+      <h1 className="favorite-trails-title">{user.name}s' Favorite Trails in a {user.vehicle}!</h1>
+      <div className="favorite-trails-list">
         {trails && <>{trailList}</>}
       </div>
     </section>

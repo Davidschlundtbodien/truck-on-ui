@@ -1,29 +1,28 @@
 import React from 'react';
 import './TrailCard.scss';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { imageList } from '../../images/imageList';
 
 const TrailCard = ({ trail }) => {
 
-  const activities = trail.tags.map(tag => {
-    return (
-      <p key={tag.name}>{tag.name}</p>
-    )
-  })
-
+  const randomImgIndex = Math.floor(Math.random() * (imageList.length))
 
   return (
     <Link to={`/trail/${trail.id}`} className="card-link">
       <section className="trail-card">
-        <h1>{trail.name}</h1>
-        <p>Difficulty - {trail.difficulty}</p>
-        <p>Type - {trail.routeType}</p>
-        <p>Traffic - {trail.traffic}</p>
-        <article>
-          <p>Activities</p>
-          <div className="activities-list">
-            {trail.tags && <>{activities}</>}
+        <img className="card-image" alt={trail.name} src={imageList[randomImgIndex]}></img>
+        <div className="card-text-container">
+          <h1 className="card-name">{trail.name}</h1>
+          <div className="card-details">
+            { trail.difficulty === "Novice" && <p className="card-difficulty green">{trail.difficulty}</p> }
+            { trail.difficulty === "Intermediate" && <p className="card-difficulty blue">{trail.difficulty}</p> }
+            { trail.difficulty === "Expert" && <p className="card-difficulty red">{trail.difficulty}</p> }
+            <div className="traffic-type">
+              <p className="card-type">Type: {trail.routeType}</p>
+              <p className="card-traffic">{`Distance: ${trail.distance} miles`}</p>
+            </div>
           </div>
-        </article>
+        </div>
       </section>
     </Link>
   )

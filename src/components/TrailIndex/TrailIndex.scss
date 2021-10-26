@@ -1,15 +1,18 @@
 .trail-index-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .search-bar {
-  width: 25em;
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 2em;
 }
 
 .search-input {
   padding: 0.25rem 0.75rem;
-  border-radius: 0.125rem;
+  width: 8em;
+  border-radius: 0.5rem;
+  background-color: #464646;
   font-size: 16px;
   cursor: pointer;
   line-height: 1.5;
@@ -17,21 +20,44 @@
   margin-right: 5px;
 }
 
+::placeholder {
+  color: white;
+}
+
 .reset-search {
   padding: 0.25rem 0.75rem;
-  border-radius: 0.125rem;
+  border-radius: 0.5rem;
   font-size: 16px;
   cursor: pointer;
   line-height: 1.5;
   border: transparent;
   margin-left: 5px;
+  background-color: #464646;
+  color: white;
+}
+
+.reset-search:hover {
+  background-color: #3d3d3d;
 }
 
 .trails-title {
   color: white;
-  margin-left: 1em;
+  margin-left: auto;
   margin-right: auto;
   margin-top: 1em;
-  width: 4em;
+  width: 12.5em;
   text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .trail-card-container {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .trails-title {
+    margin-left: 3em;
+  }
 }

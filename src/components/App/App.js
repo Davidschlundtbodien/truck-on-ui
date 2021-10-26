@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import NavBar from '../NavBar/NavBar';
+import MobileNav from '../MobileNav/MobileNav';
 import TrailIndex from '../TrailIndex/TrailIndex';
 import TrailDetails from '../TrailDetails/TrailDetails';
 import FavoriteTrails from '../FavoriteTrails/FavoriteTrails';
@@ -26,7 +27,12 @@ const App = () => {
 
   return (
     <main className="app-main">
-      <NavBar user={data.user}/>
+      <div className="app-header">
+        <p className="welcome-user">{`Welcome, ${data.user.name}`}</p>
+        <h1 className="truck-on-title">Truck On™</h1>
+        <NavBar user={data.user}/>
+      </div>
+      <MobileNav user={data.user} />
       <Switch>
         <Route exact path="/"
           render={() =>

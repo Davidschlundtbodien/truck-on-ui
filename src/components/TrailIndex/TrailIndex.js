@@ -48,10 +48,14 @@ const TrailIndex = () => {
           placeholder="Search Trails" 
           value={searchQuery} 
           onChange={event => setSearchQuery(event.target.value)}></input>
-        <Filter handleTrailFilters={handleTrailFilters}/>
+        <Filter 
+          handleTrailFilters={handleTrailFilters}
+          setFilteredTrails={setFilteredTrails}
+          allTrails={allTrails}
+        />
         <button className="reset-search" onClick={() => setSearchQuery('')}>Clear Search</button>
       </div>
-      <h1 className="trails-title">Trails</h1>
+      <h1 className="trails-title">Colorado Offroad Trails</h1>
       <section className="trail-card-container">
         {trailList}
       </section>

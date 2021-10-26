@@ -12,8 +12,8 @@ const FilterModal = React.forwardRef(({children, options, resetFilters, onApply,
             aria-label="modal window"
           >
             <div className="filter-modal-header">
-              <button onClick={resetFilters}>Reset Filters</button>
-              <button onClick={onDismiss}>✕</button>  
+              <button className="modal-reset-button" onClick={resetFilters}>Reset Filters</button>
+              <button className="modal-close-button" onClick={onDismiss}>✕</button>  
             </div>
             <div className="filter-modal-content">{options}</div>         
             <div className="filter-modal-actions">
