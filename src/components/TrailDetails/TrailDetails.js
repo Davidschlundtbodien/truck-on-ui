@@ -1,8 +1,10 @@
 import React, { useEffect, useState }from 'react';
+import { Link } from 'react-router-dom';
 import './TrailDetails.scss';
 import { useQuery } from '@apollo/client';
 import Comments from '../Comments/Comments';
 import Spinner from '../Spinner/Spinner';
+import { imageList } from '../../images/imageList';
 import { SINGLE_TRAIL }from '../../graphql/queries';
 
 
@@ -12,6 +14,8 @@ const TrailDetails = ({ id }) => {
   const {loading, error, data} = useQuery(SINGLE_TRAIL, {
     variables: { id: id },
   });
+
+  const randomImgIndex = Math.floor(Math.random() * (imageList.length))
 
   useEffect(() => {
     if (data) {
@@ -26,7 +30,11 @@ const TrailDetails = ({ id }) => {
     <>
       {!loading ?
       <article className="trail-details-container">
-        <p className="trail-name">{trail.name}</p>
+        <img className="detail-image" alt={trail.name} src={imageList[randomImgIndex]}></img>
+        <div className="picture-overlay">
+          <p className="trail-name">{trail.name}</p>
+          <Link className="back-home" to="/">Back to Home</Link>
+        </div>
         <section className="description-container">
           <p className="details-header">Summary</p>
           <p>{trail.description}</p>
