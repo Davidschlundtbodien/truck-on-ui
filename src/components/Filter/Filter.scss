@@ -4,7 +4,7 @@
 }
 
 .filter-button {
-  border-radius: 0.125rem;
+  border-radius: 0.5rem;
   padding: 0.25rem 0.75rem;
   background-color: #2b7de9;
   background-image: none;
@@ -30,7 +30,7 @@
   display: none;
   width: 20rem;
   z-index: 50;
-  left: 0;
+  left: 50.5vw;
   max-height: calc(100vh - 152px);
   position: absolute;
   margin-top: 0.5rem;
@@ -48,6 +48,7 @@
  .active-filter {
    background-color: #2b7de9;
    color: white;
+   border: 0;
  }
 
  .active-filter, .default {
