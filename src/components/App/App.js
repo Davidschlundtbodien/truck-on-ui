@@ -5,6 +5,7 @@ import TrailIndex from '../TrailIndex/TrailIndex';
 import TrailDetails from '../TrailDetails/TrailDetails';
 import FavoriteTrails from '../FavoriteTrails/FavoriteTrails';
 import PageNotFound from '../PageNotFound/PageNotFound';
+import Spinner from '../Spinner/Spinner';
 import { Route, Switch } from 'react-router-dom';
 import './App.scss';
 import { USER_LOGIN }from '../../graphql/queries';
@@ -16,7 +17,7 @@ const App = () => {
     variables: { id: 4 },
   });
 
-  if (loading) return 'Loading...';
+  if (loading) return <Spinner />;
   if (error) return `Error! ${error.message}`;
 
   return (
