@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import FilterModal from '../FilterModal/FilterModal';
 import './Filter.scss';
 
+
 const Filter = ({ handleTrailFilters, setFilteredTrails, allTrails }) => {
   const [filterActive, setFilterActive] = useState(false);
   const dropdownRef = useRef(undefined);
@@ -28,8 +29,6 @@ const Filter = ({ handleTrailFilters, setFilteredTrails, allTrails }) => {
   const [riverActivity, setRiverActivity] = useState(false);
   const [skiingActivity, setSkiingActivity] = useState(false);
 
-  // This useEffect is used to close the dropdown/modal if a user clicks anywhere outside
-  // of the dropdown/modal
   useEffect(() => {
     const handleClickOutside = (event) => {
     const isDropdownClick = dropdownRef.current && dropdownRef.current.contains(event.target);
@@ -52,17 +51,13 @@ const Filter = ({ handleTrailFilters, setFilteredTrails, allTrails }) => {
     };
   }, [dropdownRef, buttonRef, modalRef]);
 
-  // const options needs refactoring to be more DRY. Possible solution:
-  // Take all categories and store them in an array.
-  // Use a forEach to render a JSX button element for each element in the array
-
   const options =
     <section className="filter-options-container">
       <div className="difficulty-filters">
         <p className="difficulty-heading">Difficulty</p>
-        <button className={easyDifficulty ? "active-filter" : "default"} onClick={() => setEasyDifficulty(!easyDifficulty)}>Easy</button>
-        <button className={moderateDifficulty ? "active-filter" : "default"} onClick={() => setModerateDifficulty(!moderateDifficulty)}>Moderate</button>
-        <button className={hardDifficulty ? "active-filter" : "default"} onClick={() => setHardDifficulty(!hardDifficulty)}>Hard</button>
+        <button className={easyDifficulty ? "active-filter" : "default"} onClick={() => setEasyDifficulty(!easyDifficulty)}>Novice</button>
+        <button className={moderateDifficulty ? "active-filter" : "default"} onClick={() => setModerateDifficulty(!moderateDifficulty)}>Intermediate</button>
+        <button className={hardDifficulty ? "active-filter" : "default"} onClick={() => setHardDifficulty(!hardDifficulty)}>Expert</button>
       </div>
       <div className="type-filters">
         <p className="type-heading">Route Type</p>
@@ -157,7 +152,7 @@ const Filter = ({ handleTrailFilters, setFilteredTrails, allTrails }) => {
     <>
       <div className="filter">
         <button className="filter-button" onClick={() => setFilterActive(!filterActive)} ref={buttonRef}>Filter</button>
-      </div>
+      
       { filterActive && (
         <>
           <section className="filter-dropdown" ref={dropdownRef}>Filter Trails
@@ -180,6 +175,7 @@ const Filter = ({ handleTrailFilters, setFilteredTrails, allTrails }) => {
           onDismiss={() => setFilterActive(false)}
         />
       )}
+      </div>
     </>
   );
 }

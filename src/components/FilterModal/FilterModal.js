@@ -13,6 +13,7 @@ const FilterModal = React.forwardRef(({children, options, resetFilters, onApply,
           >
             <div className="filter-modal-header">
               <button className="modal-reset-button" onClick={resetFilters}>Reset Filters</button>
+              <p className="filter-modal-title">Filter</p>
               <button className="modal-close-button" onClick={onDismiss}>✕</button>  
             </div>
             <div className="filter-modal-content">{options}</div>         
