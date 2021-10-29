@@ -25,7 +25,7 @@ const TrailIndex = () => {
     }
   }, [data])
 
-  if (loading) return 'Loading...';
+  if (loading) return <Spinner />;
   if (error) return `Error! ${error.message}`;
 
   const trailList = filteredTrails.filter(trail => {

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import FilterModal from '../FilterModal/FilterModal';
 import './Filter.scss';
 
+
 const Filter = ({ handleTrailFilters, setFilteredTrails, allTrails }) => {
   const [filterActive, setFilterActive] = useState(false);
   const dropdownRef = useRef(undefined);
@@ -28,8 +29,6 @@ const Filter = ({ handleTrailFilters, setFilteredTrails, allTrails }) => {
   const [riverActivity, setRiverActivity] = useState(false);
   const [skiingActivity, setSkiingActivity] = useState(false);
 
-  // This useEffect is used to close the dropdown/modal if a user clicks anywhere outside
-  // of the dropdown/modal
   useEffect(() => {
     const handleClickOutside = (event) => {
     const isDropdownClick = dropdownRef.current && dropdownRef.current.contains(event.target);
@@ -51,10 +50,6 @@ const Filter = ({ handleTrailFilters, setFilteredTrails, allTrails }) => {
       document.removeEventListener("touchstart", handleClickOutside); /* handle touch devices */
     };
   }, [dropdownRef, buttonRef, modalRef]);
-
-  // const options needs refactoring to be more DRY. Possible solution:
-  // Take all categories and store them in an array.
-  // Use a forEach to render a JSX button element for each element in the array
 
   const options =
     <section className="filter-options-container">
