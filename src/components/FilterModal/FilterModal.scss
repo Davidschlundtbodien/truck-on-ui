@@ -12,6 +12,7 @@
   right: 0;
   bottom: 0;
   display: flex;
+  overflow-y: scroll;
   flex-direction: column;
   color: white;
 }
@@ -24,10 +25,21 @@
   border-bottom-style: solid;
   justify-content: space-between;
   button {
-    border-radius: 0.25em;
     border: 0;
-    padding: 0.25rem 0.5rem;
+    padding: 0 0.5em;
   }
+}
+
+.filter-modal-title {
+  position: absolute;
+  top: 0.8em;
+  left: 0;
+  font-size: 1.2em;
+  right: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 1em;
+  text-align: center;
 }
  
 .filter-modal-content {
@@ -35,10 +47,10 @@
   flex-direction: column;
   padding: 1em;
   button {
-    margin: 2rem 5px;
+    margin: 0.5rem 5px;
     padding: 0.4rem 1rem;
+    font-size: 1em;
     border-radius: 15px;
-    border: 1px solid gray;
   }
 }
  
@@ -60,22 +72,26 @@
   border-color: transparent;
   color: white;
   font-weight: 600;
+  font-size: 1.1em;
   cursor: pointer;
   width: 100%;
 }
 
 .modal-reset-button {
   font-weight: 600;
+  color: white;
+  font-size: 0.9em;
 }
 
 .modal-reset-button, .modal-close-button {
   cursor: pointer;
+  background-color: #181818;
 }
 
 .modal-close-button {
   color: white;
-  background-color: #f7022a;
   font-weight: 600;
+  font-size: 1.4em;
 }
 
 @media (min-width: 768px) {

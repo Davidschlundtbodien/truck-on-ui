@@ -157,7 +157,7 @@ const Filter = ({ handleTrailFilters, setFilteredTrails, allTrails }) => {
     <>
       <div className="filter">
         <button className="filter-button" onClick={() => setFilterActive(!filterActive)} ref={buttonRef}>Filter</button>
-      </div>
+      
       { filterActive && (
         <>
           <section className="filter-dropdown" ref={dropdownRef}>Filter Trails
@@ -180,6 +180,7 @@ const Filter = ({ handleTrailFilters, setFilteredTrails, allTrails }) => {
           onDismiss={() => setFilterActive(false)}
         />
       )}
+      </div>
     </>
   );
 }
