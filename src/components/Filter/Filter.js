@@ -55,9 +55,9 @@ const Filter = ({ handleTrailFilters, setFilteredTrails, allTrails }) => {
     <section className="filter-options-container">
       <div className="difficulty-filters">
         <p className="difficulty-heading">Difficulty</p>
-        <button className={easyDifficulty ? "active-filter" : "default"} onClick={() => setEasyDifficulty(!easyDifficulty)}>Easy</button>
-        <button className={moderateDifficulty ? "active-filter" : "default"} onClick={() => setModerateDifficulty(!moderateDifficulty)}>Moderate</button>
-        <button className={hardDifficulty ? "active-filter" : "default"} onClick={() => setHardDifficulty(!hardDifficulty)}>Hard</button>
+        <button className={easyDifficulty ? "active-filter" : "default"} onClick={() => setEasyDifficulty(!easyDifficulty)}>Novice</button>
+        <button className={moderateDifficulty ? "active-filter" : "default"} onClick={() => setModerateDifficulty(!moderateDifficulty)}>Intermediate</button>
+        <button className={hardDifficulty ? "active-filter" : "default"} onClick={() => setHardDifficulty(!hardDifficulty)}>Expert</button>
       </div>
       <div className="type-filters">
         <p className="type-heading">Route Type</p>
