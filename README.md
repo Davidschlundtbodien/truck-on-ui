@@ -9,7 +9,7 @@
 - [Back End](https://github.com/ericli1996/truck-on-be)
 
 ## Abstract
- Truck on is a fullstack project directed towards offraoding and the desire for exploration. The main purpose of this app was to help off roaders find trails with activities that they enjoy. Users can search for trails based on difficulty, traffic, activities or type of trail. Otherwise browse from a list natvie to Colorado. Upon selecting a trail more details are provided such as the current weather and comments from other off roaders that have completed that specific trail.
+ Truck on is a fullstack project directed towards off-roading and the desire for exploration. The main purpose of this app was to help off-roaders find trails with activities that they enjoy. Users can search for trails based on difficulty, traffic, activities or type of trail. Otherwise browse from a list native to Colorado. Upon selecting a trail more details are provided such as the current weather and comments from other off-roaders that have completed that specific trail.
  
 ### Future Additions
  - Trail locations on interactive map
